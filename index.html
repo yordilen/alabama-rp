@@ -2,966 +2,1104 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Alabama RP: regulamento, territórios, guia do jogador, economia e mensalidades.">
-  <title>Alabama RP | Site Oficial</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Alabama RP - Regulamento oficial, guia do jogador, territórios, economia e mensalidades.">
+<title>Alabama RP | Site Oficial</title>
 
-  <style>
-    :root {
-      --fundo: #14100e;
-      --painel: #211915;
-      --painel-claro: #2b211b;
-      --ouro: #d9ad68;
-      --vermelho: #702a25;
-      --texto: #ebdac5;
-      --borda: #75552f;
-      --muted: #baa58d;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--fundo);
-      color: var(--texto);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.6;
-    }
-
-    button, input { font: inherit; }
-
-    button { cursor: pointer; }
-
-    [hidden] { display: none !important; }
-
-    .topo {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: #1b1410;
-      border-bottom: 2px solid var(--ouro);
-      box-shadow: 0 3px 18px #0008;
-    }
-
-    .topo-conteudo {
-      max-width: 1450px;
-      margin: auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .marca {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 215px;
-    }
-
-    .marca img {
-      width: 65px;
-      height: 65px;
-      object-fit: contain;
-    }
-
-    .marca h1 {
-      color: var(--ouro);
-      font-size: 1.5rem;
-      line-height: 1.2;
-      margin: 0;
-    }
-
-    .marca small {
-      display: block;
-      color: var(--muted);
-      font-size: 0.7rem;
-    }
-
-    .pesquisa {
-      position: relative;
-      flex: 1;
-      max-width: 700px;
-    }
-
-    .pesquisa input {
-      width: 100%;
-      background: #100d0b;
-      border: 1px solid var(--borda);
-      border-radius: 8px;
-      color: white;
-      padding: 13px 15px;
-      outline: none;
-    }
-
-    .pesquisa input:focus {
-      border-color: var(--ouro);
-      box-shadow: 0 0 0 2px #d9ad6830;
-    }
-
-    .resultados {
-      position: absolute;
-      top: calc(100% + 7px);
-      left: 0;
-      right: 0;
-      background: #251b16;
-      border: 1px solid var(--borda);
-      border-radius: 8px;
-      box-shadow: 0 12px 25px #0009;
-      max-height: 340px;
-      overflow-y: auto;
-      z-index: 40;
-    }
-
-    .resultado {
-      display: block;
-      width: 100%;
-      padding: 12px 15px;
-      text-align: left;
-      border: none;
-      border-bottom: 1px solid #493528;
-      background: transparent;
-      color: var(--texto);
-    }
-
-    .resultado:hover,
-    .resultado:focus {
-      background: var(--vermelho);
-    }
-
-    .resultado strong {
-      display: block;
-      color: var(--ouro);
-    }
-
-    .resultado small {
-      display: block;
-      color: #d1bda7;
-    }
-
-    .sem-resultados {
-      padding: 15px;
-      color: var(--muted);
-    }
-
-    .botao-menu {
-      display: none;
-      background: var(--vermelho);
-      color: white;
-      border: 1px solid var(--borda);
-      border-radius: 6px;
-      padding: 10px 13px;
-    }
-
-    .estrutura {
-      display: grid;
-      grid-template-columns: 250px minmax(0, 1fr);
-      max-width: 1450px;
-      min-height: calc(100vh - 95px);
-      margin: auto;
-    }
-
-    .lateral {
-      background: var(--painel);
-      border-right: 1px solid var(--borda);
-      padding: 25px 15px;
-    }
-
-    .lateral h2 {
-      color: var(--ouro);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin: 0 12px 15px;
-    }
-
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .menu button {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1px solid transparent;
-      border-radius: 7px;
-      background: transparent;
-      color: var(--texto);
-      text-align: left;
-    }
-
-    .menu button:hover {
-      background: var(--painel-claro);
-      border-color: var(--borda);
-    }
-
-    .menu button.ativo {
-      background: var(--vermelho);
-      border-color: #a34a37;
-      color: #fff0d8;
-      font-weight: bold;
-    }
-
-    .lateral-rodape {
-      border-top: 1px solid var(--borda);
-      margin-top: 30px;
-      padding: 20px 12px;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .conteudo {
-      padding: 35px;
-      min-width: 0;
-    }
-
-    .pagina {
-      max-width: 1050px;
-      margin: 0 auto;
-    }
-
-    .titulo-pagina {
-      color: var(--ouro);
-      font-size: 2rem;
-      margin: 0 0 10px;
-    }
-
-    .subtitulo {
-      color: var(--muted);
-      margin-bottom: 25px;
-    }
-
-    .painel {
-      background: var(--painel);
-      border: 1px solid var(--borda);
-      border-radius: 10px;
-      padding: 25px;
-      margin-bottom: 22px;
-    }
-
-    .painel h2,
-    .cartao h3 {
-      color: var(--ouro);
-      margin-top: 0;
-    }
-
-    .destaque {
-      background: linear-gradient(120deg, #38251b, #211915);
-      border-left: 4px solid var(--vermelho);
-    }
-
-    .grade {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .cartao {
-      background: #19120f;
-      border: 1px solid #594330;
-      border-radius: 8px;
-      padding: 20px;
-    }
-
-    .cartao p { margin-bottom: 0; }
-
-    .aviso {
-      background: #19120f;
-      border-left: 3px solid var(--ouro);
-      padding: 15px;
-      margin: 20px 0;
-    }
-
-    .regra {
-      border-bottom: 1px solid #594330;
-      padding: 15px 0;
-    }
-
-    .regra:last-child { border-bottom: none; }
-
-    .regra h3 {
-      color: var(--ouro);
-      margin-bottom: 8px;
-    }
-
-    .etiqueta {
-      display: inline-block;
-      color: var(--ouro);
-      background: #392820;
-      border: 1px solid var(--borda);
-      border-radius: 5px;
-      padding: 3px 9px;
-      font-size: 0.85rem;
-    }
-
-    footer {
-      color: var(--muted);
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid var(--borda);
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 850px) {
-      .topo-conteudo {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .marca {
-        min-width: 0;
-        flex: 1;
-      }
-
-      .marca img {
-        width: 50px;
-        height: 50px;
-      }
-
-      .marca h1 { font-size: 1.2rem; }
-
-      .pesquisa {
-        order: 3;
-        flex-basis: 100%;
-        max-width: none;
-      }
-
-      .botao-menu { display: block; }
-
-      .estrutura {
-        display: block;
-        min-height: 0;
-      }
-
-      .lateral {
-        display: none;
-        border-right: none;
-        border-bottom: 1px solid var(--borda);
-        padding: 15px;
-      }
-
-      .lateral.aberta { display: block; }
-
-      .conteudo { padding: 20px 15px; }
-
-      .titulo-pagina { font-size: 1.6rem; }
-
-      .painel { padding: 18px; }
-    }
-  </style>
+<style>
+:root {
+  --fundo:#14100e;
+  --painel:#211915;
+  --cartao:#2b211b;
+  --ouro:#d9ad68;
+  --vermelho:#702a25;
+  --texto:#ebdac5;
+  --borda:#75552f;
+  --muted:#baa58d;
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  background:var(--fundo);
+  color:var(--texto);
+  font-family:Georgia,serif;
+  line-height:1.65;
+}
+button,input {font:inherit}
+button {cursor:pointer}
+[hidden] {display:none!important}
+a {color:var(--ouro)}
+h1,h2,h3,h4 {color:var(--ouro)}
+h3 {margin-bottom:8px}
+p {margin-top:8px}
+.topo {
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:#1b1410;
+  border-bottom:2px solid var(--ouro);
+  box-shadow:0 4px 20px #0008;
+}
+.topo-interno {
+  max-width:1500px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+.marca {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:235px;
+}
+.marca img {
+  width:68px;
+  height:68px;
+  object-fit:contain;
+}
+.marca h1 {
+  font-size:1.5rem;
+  margin:0;
+  line-height:1.2;
+}
+.marca small {
+  color:var(--muted);
+  font-size:12px;
+}
+.pesquisa {
+  flex:1;
+  position:relative;
+  max-width:750px;
+}
+.pesquisa input {
+  width:100%;
+  padding:14px;
+  color:white;
+  background:#100d0b;
+  border:1px solid var(--borda);
+  border-radius:8px;
+  outline:none;
+}
+.pesquisa input:focus {border-color:var(--ouro)}
+.resultados {
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;
+  right:0;
+  max-height:350px;
+  overflow:auto;
+  background:var(--painel);
+  border:1px solid var(--borda);
+  border-radius:8px;
+  box-shadow:0 12px 30px #000a;
+}
+.resultado {
+  display:block;
+  width:100%;
+  padding:12px;
+  text-align:left;
+  background:transparent;
+  border:0;
+  border-bottom:1px solid #493528;
+  color:var(--texto);
+}
+.resultado:hover {background:var(--vermelho)}
+.resultado strong {display:block;color:var(--ouro)}
+.resultado small {color:var(--muted)}
+.botao-menu {
+  display:none;
+  padding:10px;
+  background:var(--vermelho);
+  color:white;
+  border:1px solid var(--borda);
+  border-radius:6px;
+}
+.estrutura {
+  display:grid;
+  grid-template-columns:260px minmax(0,1fr);
+  max-width:1500px;
+  margin:auto;
+  min-height:calc(100vh - 100px);
+}
+.lateral {
+  padding:25px 15px;
+  background:var(--painel);
+  border-right:1px solid var(--borda);
+}
+.lateral h2 {
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin:0 12px 18px;
+}
+.menu {
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.menu button {
+  width:100%;
+  text-align:left;
+  padding:13px;
+  border:1px solid transparent;
+  border-radius:7px;
+  background:transparent;
+  color:var(--texto);
+}
+.menu button:hover {
+  background:var(--cartao);
+  border-color:var(--borda);
+}
+.menu button.ativo {
+  background:var(--vermelho);
+  border-color:#a34a37;
+  color:white;
+  font-weight:bold;
+}
+.lateral-rodape {
+  margin-top:35px;
+  padding:18px 12px;
+  border-top:1px solid var(--borda);
+  color:var(--muted);
+  font-size:13px;
+}
+.conteudo {
+  min-width:0;
+  padding:35px;
+}
+.pagina {
+  max-width:1080px;
+  margin:auto;
+}
+.titulo-pagina {
+  font-size:2rem;
+  margin:0;
+}
+.subtitulo {
+  color:var(--muted);
+  margin-bottom:25px;
+}
+.painel {
+  background:var(--painel);
+  border:1px solid var(--borda);
+  border-radius:10px;
+  padding:25px;
+  margin-bottom:20px;
+}
+.destaque {
+  background:linear-gradient(120deg,#38251b,var(--painel));
+  border-left:4px solid var(--vermelho);
+}
+.grade {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(225px,1fr));
+  gap:16px;
+  margin:20px 0;
+}
+.cartao {
+  padding:20px;
+  background:#19120f;
+  border:1px solid #594330;
+  border-radius:8px;
+}
+.cartao h3 {margin-top:0}
+.aviso {
+  padding:15px;
+  background:#19120f;
+  border-left:3px solid var(--ouro);
+  margin:20px 0;
+}
+.regra {
+  border-bottom:1px solid #594330;
+  padding:18px 0;
+}
+.regra:last-child {border-bottom:0}
+.regra h3 {margin-top:0}
+.regra ul {padding-left:23px}
+.regra li {margin:7px 0}
+.etiqueta {
+  display:inline-block;
+  padding:4px 10px;
+  background:#392820;
+  color:var(--ouro);
+  border:1px solid var(--borda);
+  border-radius:5px;
+  font-size:13px;
+}
+.botao {
+  display:inline-block;
+  padding:10px 16px;
+  border:1px solid var(--borda);
+  border-radius:6px;
+  background:var(--vermelho);
+  color:white;
+  text-decoration:none;
+  margin:5px 5px 5px 0;
+}
+.botao:hover {background:#91392e}
+.rodape {
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid var(--borda);
+  padding:25px;
+}
+@media(max-width:850px) {
+  .topo-interno {flex-wrap:wrap;gap:10px}
+  .marca {min-width:0;flex:1}
+  .marca img {width:50px;height:50px}
+  .marca h1 {font-size:1.2rem}
+  .pesquisa {order:3;flex-basis:100%;max-width:none}
+  .botao-menu {display:block}
+  .estrutura {display:block}
+  .lateral {display:none;border-right:0}
+  .lateral.aberta {display:block}
+  .conteudo {padding:20px 15px}
+  .painel {padding:18px}
+  .titulo-pagina {font-size:1.6rem}
+}
+</style>
 </head>
 
 <body>
 
-  <header class="topo">
-    <div class="topo-conteudo">
-
-      <div class="marca">
-        <img src="LOGO.png" alt="Logo oficial Alabama RP">
-        <div>
-          <h1>ALABAMA RP</h1>
-          <small>Sua história, suas escolhas.</small>
-        </div>
+<header class="topo">
+  <div class="topo-interno">
+    <div class="marca">
+      <img src="LOGO.png" alt="Logo oficial Alabama RP">
+      <div>
+        <h1>ALABAMA RP</h1>
+        <small>Sua história, suas escolhas.</small>
       </div>
-
-      <div class="pesquisa">
-        <input
-          id="pesquisaGlobal"
-          type="search"
-          placeholder="Pesquisar regras, profissões, negócios..."
-          aria-label="Pesquisar no site"
-          autocomplete="off"
-        >
-        <div
-          id="resultadosBusca"
-          class="resultados"
-          aria-label="Resultados da pesquisa"
-          hidden
-        ></div>
-      </div>
-
-      <button
-        id="botaoMenu"
-        class="botao-menu"
-        type="button"
-        aria-controls="menuLateral"
-        aria-expanded="false"
-      >
-        ☰ Menu
-      </button>
-
     </div>
-  </header>
 
-  <div class="estrutura">
-
-    <aside class="lateral" id="menuLateral">
-      <h2>Navegação</h2>
-
-      <nav class="menu" aria-label="Menu principal">
-        <button type="button" data-pagina="inicio">⌂ &nbsp; Início</button>
-        <button type="button" data-pagina="regras">▤ &nbsp; Regulamento</button>
-        <button type="button" data-pagina="territorios">◇ &nbsp; Territórios</button>
-        <button type="button" data-pagina="guia">▣ &nbsp; Guia do Jogador</button>
-        <button type="button" data-pagina="economia">＄ &nbsp; Economia</button>
-        <button type="button" data-pagina="mensalidades">★ &nbsp; Mensalidades e VIP</button>
-        <button type="button" data-pagina="comunidade">♧ &nbsp; Comunidade</button>
-      </nav>
-
-      <div class="lateral-rodape">
-        Alabama RP<br>
-        Sua história, suas escolhas,<br>
-        suas consequências.
-      </div>
-    </aside>
-
-    <main class="conteudo">
-
-      <!-- INÍCIO -->
-      <section class="pagina" id="inicio">
-
-        <h2 class="titulo-pagina">Bem-vindo ao Alabama RP</h2>
-        <p class="subtitulo">
-          Sua história, suas escolhas, suas consequências.
-        </p>
-
-        <div class="painel destaque">
-          <h2>O Velho Oeste espera por você</h2>
-          <p>
-            Um universo de Roleplay com governos, xerifados,
-            tribos, piratas e histórias construídas
-            pelos próprios jogadores.
-          </p>
-          <p>
-            Consulte o regulamento, conheça os territórios
-            e descubra as atividades disponíveis no servidor.
-          </p>
-        </div>
-
-        <div class="grade">
-          <div class="cartao">
-            <h3>Regulamento Oficial</h3>
-            <p>Conheça as regras e os direitos de cada território.</p>
-          </div>
-
-          <div class="cartao">
-            <h3>Guia do Jogador</h3>
-            <p>Aprenda sobre agricultura, mineração e profissões.</p>
-          </div>
-
-          <div class="cartao">
-            <h3>Economia</h3>
-            <p>Conheça as moedas e as atividades econômicas.</p>
-          </div>
-
-          <div class="cartao">
-            <h3>Mensalidades</h3>
-            <p>Informações sobre propriedades, negócios e VIP.</p>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- REGULAMENTO -->
-      <section class="pagina" id="regras" hidden>
-
-        <h2 class="titulo-pagina">Regulamento Oficial</h2>
-        <p class="subtitulo">
-          Regras de convivência e funcionamento do Alabama RP.
-        </p>
-
-        <div class="aviso">
-          O regulamento completo será publicado aqui.
-          Os cinco tópicos abaixo são um resumo provisório.
-        </div>
-
-        <div class="painel">
-
-          <article class="regra">
-            <h3>1. Regras gerais de Roleplay</h3>
-            <p>
-              Metagaming, Powergaming, RDM, VDM,
-              Combat Logging e uso de programas ilegais
-              são proibidos.
-            </p>
-          </article>
-
-          <article class="regra">
-            <h3>2. Territórios</h3>
-            <p>
-              Zona Legal, Zona Vermelha, Zona Azul,
-              Blackwater e Guarma possuem regras próprias.
-            </p>
-          </article>
-
-          <article class="regra">
-            <h3>3. Xerifados</h3>
-            <p>
-              Cada xerifado possui até 10 integrantes
-              e deve respeitar sua jurisdição.
-            </p>
-          </article>
-
-          <article class="regra">
-            <h3>4. Grupos</h3>
-            <p>
-              Bandos, tribos, facções e tripulações piratas
-              possuem limite máximo de 10 jogadores.
-            </p>
-          </article>
-
-          <article class="regra">
-            <h3>5. Autoridade administrativa</h3>
-            <p>
-              O proprietário do Alabama RP poderá revogar
-              normas gerais ou locais conforme o
-              regulamento oficial.
-            </p>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- TERRITÓRIOS -->
-      <section class="pagina" id="territorios" hidden>
-
-        <h2 class="titulo-pagina">Territórios</h2>
-        <p class="subtitulo">
-          Conheça as regiões e suas autoridades.
-        </p>
-
-        <div class="grade">
-
-          <div class="cartao">
-            <h3>Zona Legal</h3>
-            <p>
-              Cidades administradas por autoridades locais,
-              com xerifados e sistema judicial.
-            </p>
-          </div>
-
-          <div class="cartao">
-            <h3>Zona Vermelha</h3>
-            <p>
-              Territórios de bandos, disputas de poder
-              e atividades fora da legislação da Zona Legal.
-            </p>
-          </div>
-
-          <div class="cartao">
-            <h3>Zona Azul</h3>
-            <p>
-              Comunidades e tribos com suas próprias
-              tradições e autoridades.
-            </p>
-          </div>
-
-          <div class="cartao">
-            <h3>Guarma</h3>
-            <p>
-              Território de piratas e tripulações
-              com organização própria.
-            </p>
-          </div>
-
-          <div class="cartao">
-            <h3>Blackwater</h3>
-            <p>
-              Região sob administração exclusiva
-              da equipe responsável pelo servidor.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- GUIA DO JOGADOR -->
-      <section class="pagina" id="guia" hidden>
-
-        <h2 class="titulo-pagina">Guia do Jogador</h2>
-        <p class="subtitulo">
-          Tutoriais e informações para começar sua jornada.
-        </p>
-
-        <div class="grade">
-
-          <div class="cartao">
-            <h3>Agricultura</h3>
-            <p>
-              Cultivo, produção e atividades agrícolas.
-              Guia em preparação.
-            </p>
-          </div>
-
-          <div class="cartao">
-            <h3>Mineração</h3>
-            <p>
-              Extração de minérios e recursos.
-              Guia em preparação.
-            </p>
-          </div>
-
-          <div class="cartao">
-            <h3>Profissões</h3>
-            <p>
-              Trabalhos e atividades disponíveis.
-              Guia em preparação.
-            </p>
-          </div>
-
-          <div class="cartao">
-            <h3>Negócios</h3>
-            <p>
-              Fazendas, saloons, armerias e outros
-              estabelecimentos. Guia em preparação.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ECONOMIA -->
-      <section class="pagina" id="economia" hidden>
-
-        <h2 class="titulo-pagina">Economia</h2>
-        <p class="subtitulo">
-          Moedas e atividades econômicas do Alabama RP.
-        </p>
-
-        <div class="grade">
-
-          <div class="cartao">
-            <h3>Dinheiro Limpo</h3>
-            <p>
-              Moeda utilizada nas atividades legais
-              e no comércio da Zona Legal.
-            </p>
-          </div>
-
-          <div class="cartao">
-            <h3>Dinheiro Sujo</h3>
-            <p>
-              Moeda relacionada às atividades
-              das regiões fora da Zona Legal.
-            </p>
-          </div>
-
-          <div class="cartao">
-            <h3>Moeda Cultural</h3>
-            <p>
-              Moeda destinada às atividades
-              econômicas da Zona Azul.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="aviso">
-          Objetos e itens colocáveis dentro do jogo
-          serão adquiridos com dinheiro do próprio jogo,
-          conforme os sistemas disponíveis no servidor.
-        </div>
-      </section>
-
-      <!-- MENSALIDADES -->
-      <section class="pagina" id="mensalidades" hidden>
-
-        <h2 class="titulo-pagina">Mensalidades e VIP</h2>
-        <p class="subtitulo">
-          Serviços e estabelecimentos disponíveis
-          mediante mensalidade.
-        </p>
-
-        <div class="grade">
-
-          <div class="cartao">
-            <h3>VIP</h3>
-            <p>Planos e benefícios a definir.</p>
-            <span class="etiqueta">Em preparação</span>
-          </div>
-
-          <div class="cartao">
-            <h3>Fazendas</h3>
-            <p>Utilização de propriedades rurais.</p>
-            <span class="etiqueta">Valores em definição</span>
-          </div>
-
-          <div class="cartao">
-            <h3>Saloons</h3>
-            <p>Utilização de estabelecimentos.</p>
-            <span class="etiqueta">Valores em definição</span>
-          </div>
-
-          <div class="cartao">
-            <h3>Armerias</h3>
-            <p>Utilização de estabelecimentos.</p>
-            <span class="etiqueta">Valores em definição</span>
-          </div>
-
-          <div class="cartao">
-            <h3>Outros Negócios</h3>
-            <p>Novas categorias serão adicionadas futuramente.</p>
-            <span class="etiqueta">Em preparação</span>
-          </div>
-
-        </div>
-
-        <div class="painel">
-          <h2>Funcionamento das mensalidades</h2>
-
-          <p>
-            O pagamento mantém o direito de utilização
-            do estabelecimento durante o período contratado.
-          </p>
-
-          <p>
-            Após o vencimento, o jogador terá
-            <strong>72 horas de tolerância</strong>
-            para regularizar o pagamento, mantendo
-            o acesso durante esse período.
-          </p>
-
-          <p>
-            Caso não regularize o pagamento dentro
-            das 72 horas, perderá automaticamente
-            o direito de utilização e a titularidade
-            do estabelecimento.
-          </p>
-        </div>
-
-        <div class="aviso">
-          Pagamentos ainda não disponíveis.
-          A integração com Tebex será realizada futuramente.
-        </div>
-
-      </section>
-
-      <!-- COMUNIDADE -->
-      <section class="pagina" id="comunidade" hidden>
-
-        <h2 class="titulo-pagina">Comunidade</h2>
-        <p class="subtitulo">
-          Notícias, anúncios e informações da comunidade.
-        </p>
-
-        <div class="painel">
-          <h2>Participe do Alabama RP</h2>
-          <p>
-            Acompanhe os anúncios, conheça outros jogadores
-            e descubra as novidades do servidor.
-          </p>
-          <p>
-            O link oficial do Discord será
-            disponibilizado em breve.
-          </p>
-        </div>
-
-      </section>
-
-    </main>
+    <div class="pesquisa">
+      <input id="pesquisaGlobal" type="search"
+        placeholder="Pesquisar regras, territórios, profissões, negócios..."
+        aria-label="Pesquisar no site" autocomplete="off">
+      <div id="resultadosBusca" class="resultados" hidden></div>
+    </div>
+
+    <button id="botaoMenu" class="botao-menu"
+      type="button" aria-expanded="false"
+      aria-controls="menuLateral">☰ Menu</button>
+  </div>
+</header>
+
+<div class="estrutura">
+
+<aside class="lateral" id="menuLateral">
+  <h2>Navegação</h2>
+  <nav class="menu" aria-label="Menu principal">
+    <button data-pagina="inicio">⌂ &nbsp; Início</button>
+    <button data-pagina="regras">▤ &nbsp; Regulamento</button>
+    <button data-pagina="territorios">◇ &nbsp; Territórios</button>
+    <button data-pagina="guia">▣ &nbsp; Guia do Jogador</button>
+    <button data-pagina="economia">＄ &nbsp; Economia</button>
+    <button data-pagina="mensalidades">★ &nbsp; Mensalidades e VIP</button>
+    <button data-pagina="comunidade">♧ &nbsp; Comunidade</button>
+  </nav>
+
+  <div class="lateral-rodape">
+    Alabama RP<br>
+    Sua história, suas escolhas,<br>
+    suas consequências.
+  </div>
+</aside>
+
+<main class="conteudo">
+
+<!-- INÍCIO -->
+<section class="pagina" id="inicio">
+  <h2 class="titulo-pagina">Bem-vindo ao Alabama RP</h2>
+  <p class="subtitulo">Sua história, suas escolhas, suas consequências.</p>
+
+  <div class="painel destaque">
+    <h2>O Velho Oeste espera por você</h2>
+    <p>
+      Um universo de Roleplay inspirado no Velho Oeste,
+      com governos, xerifados, tribos, piratas,
+      comércio e histórias construídas pelos jogadores.
+    </p>
+    <p>
+      Conheça o regulamento, explore os territórios,
+      consulte o guia do jogador e descubra
+      como funciona a economia do Alabama RP.
+    </p>
   </div>
 
-  <footer>
-    © Alabama RP — Site Oficial
-  </footer>
+  <div class="grade">
+    <div class="cartao">
+      <h3>Regulamento Oficial</h3>
+      <p>Regras de Roleplay, autoridades, justiça e territórios.</p>
+    </div>
+    <div class="cartao">
+      <h3>Guia do Jogador</h3>
+      <p>Informações sobre atividades e profissões.</p>
+    </div>
+    <div class="cartao">
+      <h3>Economia</h3>
+      <p>Moedas, comércio e propriedades.</p>
+    </div>
+    <div class="cartao">
+      <h3>Mensalidades e VIP</h3>
+      <p>Fazendas, saloons, armerias e outros negócios.</p>
+    </div>
+  </div>
 
-  <script>
-    const paginas = Array.from(
-      document.querySelectorAll(".pagina")
-    );
+  <div class="aviso">
+    Algumas atividades e serviços serão disponibilizados
+    conforme o desenvolvimento e a abertura do servidor.
+  </div>
+</section>
 
-    const botoes = Array.from(
-      document.querySelectorAll("[data-pagina]")
-    );
+<!-- REGULAMENTO -->
+<section class="pagina" id="regras" hidden>
+  <h2 class="titulo-pagina">Regulamento Oficial</h2>
+  <p class="subtitulo">Normas de Roleplay e organização do Alabama RP.</p>
 
-    const pesquisa = document.getElementById("pesquisaGlobal");
-    const resultados = document.getElementById("resultadosBusca");
-    const botaoMenu = document.getElementById("botaoMenu");
-    const menuLateral = document.getElementById("menuLateral");
+  <div class="aviso">
+    Leia as regras antes de participar.
+    Este texto reúne as normas definidas para o projeto.
+    A publicação e a aplicação definitiva dependem
+    da revisão administrativa antes da abertura.
+  </div>
 
-    function mostrarPagina(id, atualizarEndereco = true) {
-      const existe = paginas.some(pagina => pagina.id === id);
+  <div class="painel">
 
-      if (!existe) {
-        id = "inicio";
-      }
+    <article class="regra">
+      <h3>1. Regras gerais de Roleplay</h3>
+      <ul>
+        <li>É proibido Metagaming: utilizar informações externas ao personagem.</li>
+        <li>É proibido Powergaming: forçar ações impossíveis ou sem possibilidade de reação adequada.</li>
+        <li>São proibidos RDM, VDM e Combat Logging.</li>
+        <li>É proibido utilizar cheats, exploits ou programas para obter vantagens ilegítimas.</li>
+        <li>O jogador deve respeitar o Fear RP e valorizar a vida do personagem.</li>
+        <li>As ações devem manter coerência com a história e o contexto do servidor.</li>
+      </ul>
+    </article>
 
-      paginas.forEach(pagina => {
-        pagina.hidden = pagina.id !== id;
-      });
+    <article class="regra">
+      <h3>2. Morte, memória e continuidade do RP</h3>
+      <ul>
+        <li>O personagem deve respeitar as consequências das situações de morte ou inconsciência.</li>
+        <li>Não é permitido utilizar lembranças de situações que o personagem não poderia recordar.</li>
+        <li>Atendimentos médicos e retornos ao RP devem respeitar o sistema e as regras de memória aplicáveis.</li>
+        <li>É proibido utilizar a morte do personagem como justificativa para vingança baseada em informações indevidas.</li>
+      </ul>
+    </article>
 
-      botoes.forEach(botao => {
-        const ativo = botao.dataset.pagina === id;
-        botao.classList.toggle("ativo", ativo);
+    <article class="regra">
+      <h3>3. Territórios e segurança</h3>
+      <ul>
+        <li><strong>Blackwater:</strong> área sob administração exclusiva da equipe do servidor, protegida permanentemente, salvo eventos oficiais autorizados.</li>
+        <li><strong>Zona Legal:</strong> cidades protegidas; roubos nas áreas externas conforme o horário permitido, das 20h às 6h do jogo.</li>
+        <li><strong>Zona Vermelha:</strong> região de maior risco, incluindo Tumbleweed, Armadillo e McFarlane's Ranch, sujeita a conflitos e roubos conforme suas regras.</li>
+        <li><strong>Zona Azul:</strong> comunidades e aldeias culturais protegidas, com regras próprias; roubos externos no horário permitido.</li>
+        <li><strong>Guarma:</strong> território de piratas, com organização e regras próprias.</li>
+        <li>As normas locais não autorizam descumprir regras gerais de Roleplay.</li>
+      </ul>
+    </article>
 
-        if (ativo) {
-          botao.setAttribute("aria-current", "page");
-        } else {
-          botao.removeAttribute("aria-current");
-        }
-      });
+    <article class="regra">
+      <h3>4. Propriedades e fazendas</h3>
+      <ul>
+        <li>Propriedades privadas possuem proteção conforme as regras territoriais.</li>
+        <li>Não é permitido utilizar uma propriedade para escapar artificialmente de uma ação de RP já iniciada.</li>
+        <li>Na Zona Legal, buscas em propriedades dependem de autorização judicial de Blackwater, ressalvadas situações de perseguição direta previstas nas regras.</li>
+        <li>Na defesa de fazendas ilegais da Zona Vermelha ou Guarma, deve existir pelo menos um defensor a mais que o número de invasores.</li>
+        <li>Nessas disputas, são permitidas somente pistolas e revólveres, salvo acordo específico entre os representantes envolvidos.</li>
+        <li>Não é permitido tomar a titularidade de uma propriedade apenas pela vitória em uma guerra ou combate.</li>
+      </ul>
+    </article>
 
-      if (atualizarEndereco) {
-        history.replaceState(null, "", "#" + id);
-      }
+    <article class="regra">
+      <h3>5. Bandos, tribos, facções e piratas</h3>
+      <ul>
+        <li>O limite máximo é de 10 jogadores por grupo organizado.</li>
+        <li>Os grupos devem registrar seus uniformes oficiais.</li>
+        <li>Alterações de uniformes devem ser comunicadas pelos canais oficiais.</li>
+        <li>O reconhecimento de um grupo pelo uniforme depende das condições estabelecidas em RP.</li>
+        <li>Após uma derrota que permita reconhecimento, a alteração oficial do uniforme exige espera de 48 horas reais.</li>
+        <li>Uma nova derrota reinicia o período de 48 horas.</li>
+      </ul>
+    </article>
 
-      resultados.hidden = true;
-      menuLateral.classList.remove("aberta");
-      botaoMenu.setAttribute("aria-expanded", "false");
+    <article class="regra">
+      <h3>6. Xerifados e jurisdição</h3>
+      <ul>
+        <li>Cada xerifado poderá possuir até 10 integrantes: 1 Xerife, 1 Subxerife, 2 Sargentos e 6 Oficiais.</li>
+        <li>Todos os integrantes podem patrulhar, intervir e realizar prisões dentro de sua jurisdição.</li>
+        <li>Cada cidade deverá utilizar a identificação e a cor de uniforme determinadas para seu xerifado.</li>
+        <li>O xerifado atua dentro da jurisdição de sua cidade. Valentine e Rhodes, por exemplo, possuem jurisdições separadas.</li>
+        <li>Uma perseguição direta pode continuar conforme as regras específicas, mas não concede autoridade policial permanente fora da jurisdição.</li>
+        <li>O pedido de autorização a Blackwater para continuar uma busca fora da jurisdição deve respeitar o prazo de até 2 horas reais desde a travessia.</li>
+        <li>Uma ordem judicial de Blackwater deverá ser executada pelo xerifado competente da localidade.</li>
+        <li>O xerife de outra cidade poderá cooperar quando a perseguição entrar em sua própria jurisdição.</li>
+        <li>Os xerifados da Zona Legal não possuem autoridade policial automática sobre Zona Vermelha, Zona Azul ou Guarma.</li>
+      </ul>
+    </article>
 
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }
+    <article class="regra">
+      <h3>7. Prisões, antecedentes e justiça</h3>
+      <ul>
+        <li>Todas as prisões deverão ser registradas com motivo, responsável e pena aplicada.</li>
+        <li>Os registros constituem antecedentes do personagem.</li>
+        <li>Antecedentes não aumentam automaticamente uma pena; sua relevância depende de decisão judicial.</li>
+        <li>Xerifes, Subxerifes, Sargentos e o Judiciário de Blackwater podem consultar antecedentes conforme suas atribuições.</li>
+        <li>Oficiais não possuem acesso direto ao histórico completo.</li>
+        <li>O cidadão pode solicitar seus próprios antecedentes às autoridades competentes.</li>
+        <li>Somente o Judiciário de Blackwater pode corrigir ou eliminar registros de antecedentes.</li>
+        <li>Sisika depende de determinação judicial ou das condições previstas para roubos a bancos.</li>
+      </ul>
+    </article>
 
-    botoes.forEach(botao => {
-      botao.addEventListener("click", () => {
-        mostrarPagina(botao.dataset.pagina);
+    <article class="regra">
+      <h3>8. Julgamentos e júri</h3>
+      <ul>
+        <li>O Judiciário de Blackwater é responsável pelos processos judiciais previstos no regulamento.</li>
+        <li>Acusações que dependam de investigação, incluindo corrupção e abuso de autoridade, exigem julgamento com júri nas condições estabelecidas.</li>
+        <li>O júri será composto por 5 jurados titulares e um suplente separado.</li>
+        <li>Na seleção, serão apresentados 7 candidatos, com direito de recusa conforme o procedimento judicial.</li>
+        <li>A decisão de culpabilidade exige maioria de pelo menos 3 dos 5 jurados.</li>
+        <li>O juiz conduz o julgamento e determina a pena aplicável.</li>
+        <li>Advogados devem cumprir os requisitos de habilitação de Blackwater.</li>
+        <li>O acusado poderá ser representado conforme o procedimento aplicável.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>9. Recursos e revisão judicial</h3>
+      <ul>
+        <li>Recursos deverão ser apresentados em até 24 horas reais.</li>
+        <li>O recurso depende de novas provas relevantes ou de irregularidades processuais.</li>
+        <li>A apresentação de recurso não suspende automaticamente todas as penas.</li>
+        <li>Nos casos previstos para condenação de juiz corrupto, um recurso válido suspende a execução até sua análise.</li>
+        <li>Compensações por decisões indevidas não são automáticas.</li>
+        <li>Antecedentes invalidados deverão ser corrigidos ou anotados pelo Judiciário.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>10. Corrupção e abuso de autoridade</h3>
+      <ul>
+        <li>Autoridades policiais poderão sofrer investigação, suspensão, destituição ou outras sanções.</li>
+        <li>Policiais destituídos judicialmente por corrupção ficam impedidos de retornar aos xerifados da Zona Legal.</li>
+        <li>Um juiz acusado de corrupção deverá ser julgado por outro juiz, com júri e participação administrativa conforme o procedimento.</li>
+        <li>A condenação judicial por corrupção poderá resultar na pena definitiva prevista no regulamento, respeitando o período de recurso.</li>
+        <li>Denúncias feitas de boa-fé devem ser protegidas.</li>
+        <li>Acusações deliberadamente falsas também poderão gerar consequências em RP.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>11. Roubos oficiais: lojas, igrejas e bancos</h3>
+      <ul>
+        <li><strong>Loja:</strong> 1 a 2 assaltantes, até 3 policiais, sem reféns e apenas pistolas ou revólveres.</li>
+        <li><strong>Igreja:</strong> 2 a 5 assaltantes, até 6 policiais e 1 refém real. Os assaltantes escolhem entre local do confronto ou armamento; a polícia decide o outro elemento.</li>
+        <li><strong>Banco:</strong> 5 a 9 assaltantes, até 10 policiais, sem reféns e com armamento livre.</li>
+        <li>É obrigatória a negociação do início da ação, incluindo condições e horário acordado.</li>
+        <li>Não é permitido iniciar disparos antes do momento negociado.</li>
+        <li>Nas igrejas e bancos, policiais locais em serviço podem solicitar reforços, respeitando o limite total.</li>
+        <li>Se os assaltantes perderem, a polícia poderá confiscar todas as armas e todo o dinheiro sujo que estiverem carregando.</li>
+        <li>Dinheiro limpo e valores armazenados não são confiscados simplesmente pela derrota.</li>
+        <li>As condições de vitória, fuga, rendição e apreensão devem respeitar as regras oficiais da ação.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>12. Roubos a túmulos e cemitérios</h3>
+      <ul>
+        <li>Até 5 ladrões podem participar juntos da atividade.</li>
+        <li>A perseguição começa quando a polícia anuncia sua presença e o ladrão inicia a fuga.</li>
+        <li>Com 1 policial: o policial poderá utilizar o laço após 30 segundos; o ladrão, após 45 segundos.</li>
+        <li>Com 2 policiais: o laço policial é permitido após 60 segundos; o do ladrão, após 75 segundos.</li>
+        <li>Cada ladrão deverá agir somente contra seu perseguidor designado.</li>
+        <li>Quando houver vários fugitivos, as fugas deverão ocorrer em direções opostas.</li>
+        <li>Um policial amarrado deverá aguardar o tempo regulamentar de 60 segundos.</li>
+        <li>A perseguição respeita os limites de jurisdição.</li>
+        <li>O uso de máscara impede reconhecimento automático sem provas válidas dentro do RP.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>13. Moedas, comércio e identificação</h3>
+      <ul>
+        <li>Existem três categorias econômicas: dinheiro limpo, dinheiro sujo e moeda cultural.</li>
+        <li>O dinheiro limpo corresponde às atividades econômicas da Zona Legal.</li>
+        <li>O dinheiro sujo está relacionado às atividades da Zona Vermelha e Guarma.</li>
+        <li>A moeda cultural é utilizada nas comunidades da Zona Azul.</li>
+        <li>Comércios oficiais identificados no mapa aceitam a moeda de sua região.</li>
+        <li>Negociações entre jogadores podem utilizar a moeda escolhida pelo vendedor.</li>
+        <li>Portar dinheiro sujo na Zona Legal é ilegal e poderá resultar em confisco do valor carregado.</li>
+        <li>Identidades falsas podem existir como elemento de RP, mas não criam direitos legais de propriedade.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>14. Leis gerais da Zona Legal</h3>
+      <ul>
+        <li>A criação ou modificação de uma lei geral exige unanimidade dos prefeitos das cidades da Zona Legal.</li>
+        <li>Na ausência de um prefeito, poderá participar o representante autorizado conforme as regras locais.</li>
+        <li>A revogação de uma lei geral poderá ocorrer por maioria simples.</li>
+        <li>Os votos deverão ser públicos e identificados.</li>
+        <li>As alterações deverão ser publicadas oficialmente.</li>
+        <li>Novas leis não possuem efeito retroativo.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>15. Leis municipais da Zona Legal</h3>
+      <ul>
+        <li>Leis municipais poderão ser propostas pelo prefeito, vice-prefeito ou cidadãos com apoio mínimo de 20% dos eleitores habilitados.</li>
+        <li>A votação terá duração de 48 horas reais.</li>
+        <li>O voto será secreto.</li>
+        <li>A aprovação exige votos favoráveis de mais de 50% de todos os eleitores habilitados, e não apenas dos participantes.</li>
+        <li>A aplicação depende da aprovação administrativa final prevista no sistema.</li>
+        <li>Leis municipais não poderão contrariar normas superiores.</li>
+        <li>A revogação seguirá o procedimento correspondente.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>16. Leis da Zona Vermelha</h3>
+      <ul>
+        <li>As cidades da Zona Vermelha possuem autoridades e governos próprios.</li>
+        <li>Leis gerais da região exigem unanimidade dos líderes das três cidades.</li>
+        <li>Cada cidade poderá estabelecer suas normas locais.</li>
+        <li>As normas locais não poderão contrariar regras gerais do servidor.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>17. Leis da Zona Azul</h3>
+      <ul>
+        <li>Tribus e comunidades possuem autonomia de organização interna.</li>
+        <li>Leis gerais da Zona Azul exigem unanimidade dos líderes das comunidades participantes.</li>
+        <li>Cada comunidade poderá manter regras culturais e administrativas próprias.</li>
+        <li>As normas devem respeitar as regras gerais de Roleplay.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>18. Leis de Guarma</h3>
+      <ul>
+        <li>Guarma possui organização própria de tripulações piratas.</li>
+        <li>Leis gerais exigem unanimidade dos capitães.</li>
+        <li>Cada bando possui um voto, independentemente da quantidade de integrantes.</li>
+        <li>Tripulações podem definir normas internas.</li>
+        <li>O limite máximo de 10 jogadores por grupo permanece aplicável.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>19. Residência e propriedade</h3>
+      <ul>
+        <li>Cada personagem poderá manter apenas uma residência oficial registrada.</li>
+        <li>A mudança de residência entre regiões deverá respeitar a espera de 30 dias reais.</li>
+        <li>Antes da mudança, o personagem deverá abrir mão das propriedades da região anterior.</li>
+        <li>Após a mudança regular, poderá adquirir propriedades na nova região conforme as regras.</li>
+        <li>As restrições de propriedade não impedem atividades de trabalhadores que não sejam proprietários.</li>
+        <li>Residentes da Zona Legal e da Zona Vermelha não poderão manter registros residenciais simultâneos nas duas regiões.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>20. Mensalidades de propriedades e negócios</h3>
+      <ul>
+        <li>Propriedades e negócios disponibilizados por mensalidade não exigem pagamento inicial de aquisição separado da mensalidade.</li>
+        <li>O pagamento mensal mantém o direito de utilização e a titularidade durante o período contratado.</li>
+        <li>Após o vencimento, haverá tolerância de 72 horas reais.</li>
+        <li>Durante a tolerância, o proprietário poderá continuar utilizando o estabelecimento.</li>
+        <li>Após 72 horas sem regularização, a titularidade será perdida automaticamente e o estabelecimento retornará à administração.</li>
+        <li>Os valores serão anunciados oficialmente fora do RP.</li>
+        <li>Aumentos de preço deverão ser anunciados previamente, respeitando o ciclo anterior nas condições definidas.</li>
+        <li>A devolução voluntária de uma propriedade não gera reembolso automático.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>21. Autoridade do proprietário do servidor</h3>
+      <ul>
+        <li>O proprietário do Alabama RP possui autoridade administrativa final sobre o projeto.</li>
+        <li>Poderá revogar normas gerais ou locais.</li>
+        <li>A revogação administrativa não depende de aprovação legislativa ou judicial dentro do RP.</li>
+        <li>As alterações deverão ser comunicadas oficialmente aos jogadores.</li>
+      </ul>
+    </article>
+
+    <article class="regra">
+      <h3>22. Disposições finais</h3>
+      <ul>
+        <li>Todos os jogadores devem conhecer e respeitar o regulamento oficial.</li>
+        <li>As regras gerais prevalecem sobre normas locais incompatíveis.</li>
+        <li>Casos não previstos serão analisados pela administração conforme os princípios do servidor.</li>
+        <li>Atualizações entrarão em vigor após publicação oficial, respeitando as condições específicas de cada norma.</li>
+        <li>A equipe administrativa poderá aplicar medidas proporcionais às infrações comprovadas.</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<!-- TERRITÓRIOS -->
+<section class="pagina" id="territorios" hidden>
+  <h2 class="titulo-pagina">Territórios</h2>
+  <p class="subtitulo">Regiões, governos e autoridades do Alabama RP.</p>
+
+  <div class="grade">
+    <div class="cartao">
+      <h3>Zona Legal</h3>
+      <p>
+        Cidades com prefeitos, xerifados, eleições,
+        legislação e sistema judicial de Blackwater.
+      </p>
+    </div>
+    <div class="cartao">
+      <h3>Zona Vermelha</h3>
+      <p>
+        Armadillo, Tumbleweed e McFarlane's Ranch.
+        Territórios de bandos e disputas de poder.
+      </p>
+    </div>
+    <div class="cartao">
+      <h3>Zona Azul</h3>
+      <p>
+        Territórios culturais de tribos e comunidades,
+        com líderes e tradições próprias.
+      </p>
+    </div>
+    <div class="cartao">
+      <h3>Guarma</h3>
+      <p>
+        Região de piratas, capitães e tripulações
+        com regras próprias de organização.
+      </p>
+    </div>
+    <div class="cartao">
+      <h3>Blackwater</h3>
+      <p>
+        Região sob administração exclusiva da equipe
+        do servidor e referência do sistema judicial.
+      </p>
+    </div>
+  </div>
+
+  <div class="painel">
+    <h2>Governos e autoridades</h2>
+    <p>
+      A Zona Legal utiliza eleições e governos municipais.
+      A Zona Vermelha possui líderes próprios.
+      A Zona Azul é organizada por suas comunidades,
+      enquanto Guarma possui capitães piratas.
+    </p>
+    <p>
+      A autoridade policial da Zona Legal é limitada
+      à jurisdição correspondente, salvo as condições
+      de cooperação e autorização judicial.
+    </p>
+  </div>
+</section>
+
+<!-- GUIA DO JOGADOR -->
+<section class="pagina" id="guia" hidden>
+  <h2 class="titulo-pagina">Guia do Jogador</h2>
+  <p class="subtitulo">
+    Informações para começar e desenvolver sua história.
+  </p>
+
+  <div class="painel destaque">
+    <h2>Primeiros passos</h2>
+    <p>
+      Antes de iniciar sua jornada, leia o regulamento,
+      conheça os territórios e escolha como deseja
+      desenvolver seu personagem.
+    </p>
+    <p>
+      Os tutoriais operacionais serão atualizados conforme
+      os sistemas forem instalados e testados no servidor.
+    </p>
+  </div>
+
+  <div class="grade">
+    <div class="cartao">
+      <h3>Agricultura</h3>
+      <p>Informações sobre cultivo, produção e atividades rurais.</p>
+      <span class="etiqueta">Tutorial em preparação</span>
+    </div>
+    <div class="cartao">
+      <h3>Mineração</h3>
+      <p>Informações sobre extração de minérios e recursos.</p>
+      <span class="etiqueta">Tutorial em preparação</span>
+    </div>
+    <div class="cartao">
+      <h3>Profissões</h3>
+      <p>Guia de trabalhos e atividades disponíveis.</p>
+      <span class="etiqueta">Tutorial em preparação</span>
+    </div>
+    <div class="cartao">
+      <h3>Criação de Personagem</h3>
+      <p>Identidade, residência, história e integração ao RP.</p>
+      <span class="etiqueta">Tutorial em preparação</span>
+    </div>
+    <div class="cartao">
+      <h3>Comércio</h3>
+      <p>Compra, venda e negociação entre jogadores.</p>
+      <span class="etiqueta">Tutorial em preparação</span>
+    </div>
+    <div class="cartao">
+      <h3>Propriedades</h3>
+      <p>Funcionamento de fazendas e estabelecimentos.</p>
+      <span class="etiqueta">Tutorial em preparação</span>
+    </div>
+    <div class="cartao">
+      <h3>Xerifados</h3>
+      <p>Organização, hierarquia e jurisdição policial.</p>
+      <span class="etiqueta">Informações no regulamento</span>
+    </div>
+    <div class="cartao">
+      <h3>Tribos e Piratas</h3>
+      <p>Organização cultural e regras dos grupos.</p>
+      <span class="etiqueta">Informações no regulamento</span>
+    </div>
+  </div>
+</section>
+
+<!-- ECONOMIA -->
+<section class="pagina" id="economia" hidden>
+  <h2 class="titulo-pagina">Economia</h2>
+  <p class="subtitulo">Sistema econômico e moedas do Alabama RP.</p>
+
+  <div class="grade">
+    <div class="cartao">
+      <h3>Dinheiro Limpo</h3>
+      <p>
+        Moeda das atividades legais e dos estabelecimentos
+        da Zona Legal.
+      </p>
+    </div>
+    <div class="cartao">
+      <h3>Dinheiro Sujo</h3>
+      <p>
+        Moeda associada às atividades da Zona Vermelha
+        e Guarma. Seu porte na Zona Legal é ilegal.
+      </p>
+    </div>
+    <div class="cartao">
+      <h3>Moeda Cultural</h3>
+      <p>
+        Moeda destinada às comunidades e às atividades
+        econômicas da Zona Azul.
+      </p>
+    </div>
+  </div>
+
+  <div class="painel">
+    <h2>Comércio e negociação</h2>
+    <p>
+      Os estabelecimentos oficiais identificados no mapa
+      utilizarão a moeda correspondente à sua região.
+    </p>
+    <p>
+      Em negociações entre jogadores, o vendedor poderá
+      determinar a moeda aceita.
+    </p>
+  </div>
+
+  <div class="aviso">
+    Objetos, móveis e itens colocáveis dentro do jogo
+    serão adquiridos com dinheiro do próprio jogo,
+    conforme os sistemas implementados.
+  </div>
+</section>
+
+<!-- MENSALIDADES -->
+<section class="pagina" id="mensalidades" hidden>
+  <h2 class="titulo-pagina">Mensalidades e VIP</h2>
+  <p class="subtitulo">
+    Propriedades, estabelecimentos e serviços do Alabama RP.
+  </p>
+
+  <div class="aviso">
+    As contratações ainda não estão disponíveis.
+    Os pagamentos serão configurados futuramente
+    na plataforma Tebex.
+  </div>
+
+  <div class="grade">
+    <div class="cartao">
+      <h3>VIP</h3>
+      <p>Planos e benefícios ainda em definição.</p>
+      <span class="etiqueta">Em preparação</span>
+    </div>
+    <div class="cartao">
+      <h3>Fazendas</h3>
+      <p>Utilização de propriedades rurais por mensalidade.</p>
+      <span class="etiqueta">Preço a definir</span>
+    </div>
+    <div class="cartao">
+      <h3>Saloons</h3>
+      <p>Utilização de estabelecimentos por mensalidade.</p>
+      <span class="etiqueta">Preço a definir</span>
+    </div>
+    <div class="cartao">
+      <h3>Armerias</h3>
+      <p>Utilização de estabelecimentos por mensalidade.</p>
+      <span class="etiqueta">Preço a definir</span>
+    </div>
+    <div class="cartao">
+      <h3>Outros Negócios</h3>
+      <p>Novas categorias conforme a disponibilidade do servidor.</p>
+      <span class="etiqueta">Em preparação</span>
+    </div>
+  </div>
+
+  <div class="painel">
+    <h2>Como funcionam as mensalidades?</h2>
+    <p>
+      O jogador paga a mensalidade para manter
+      o direito de utilização do estabelecimento.
+    </p>
+
+    <h3>Pagamento em dia</h3>
+    <p>
+      O jogador continua utilizando normalmente
+      a propriedade ou o negócio.
+    </p>
+
+    <h3>Pagamento vencido</h3>
+    <p>
+      Começa um período de tolerância de
+      <strong>72 horas reais</strong>.
+      Durante esse período, o jogador
+      mantém o direito de utilização.
+    </p>
+
+    <h3>Pagamento regularizado</h3>
+    <p>
+      Se o pagamento for confirmado dentro do prazo,
+      o jogador continua utilizando o estabelecimento.
+    </p>
+
+    <h3>Após 72 horas sem pagamento</h3>
+    <p>
+      O sistema retirará automaticamente a titularidade
+      e o direito de utilização do estabelecimento,
+      que retornará à administração.
+    </p>
+  </div>
+
+  <div class="painel">
+    <h2>Itens dentro do jogo</h2>
+    <p>
+      Objetos colocáveis e outros itens de utilização
+      dentro do jogo serão adquiridos com a moeda
+      do próprio servidor, conforme a disponibilidade
+      e as regras de cada sistema.
+    </p>
+  </div>
+
+  <div class="aviso">
+    A verificação automática de pagamentos,
+    a renovação e o controle de propriedades
+    dependerão da integração futura entre Tebex
+    e o servidor Alabama RP.
+  </div>
+</section>
+
+<!-- COMUNIDADE -->
+<section class="pagina" id="comunidade" hidden>
+  <h2 class="titulo-pagina">Comunidade</h2>
+  <p class="subtitulo">Informações e comunicação oficial.</p>
+
+  <div class="painel">
+    <h2>Discord Oficial</h2>
+    <p>
+      O Discord será utilizado para anúncios,
+      comunicação da comunidade e publicação
+      de informações importantes.
+    </p>
+    <span class="etiqueta">Link oficial em preparação</span>
+  </div>
+
+  <div class="painel">
+    <h2>Notícias e atualizações</h2>
+    <p>
+      As novidades do servidor, alterações do regulamento
+      e comunicados importantes serão publicados
+      pelos canais oficiais.
+    </p>
+  </div>
+
+  <div class="painel">
+    <h2>Suporte</h2>
+    <p>
+      Os canais de suporte, denúncias e solicitações
+      serão informados antes da abertura oficial.
+    </p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<footer class="rodape">
+  © Alabama RP — Site Oficial
+</footer>
+
+<script>
+const paginas = [...document.querySelectorAll(".pagina")];
+const botoes = [...document.querySelectorAll("[data-pagina]")];
+const pesquisa = document.getElementById("pesquisaGlobal");
+const resultados = document.getElementById("resultadosBusca");
+const botaoMenu = document.getElementById("botaoMenu");
+const lateral = document.getElementById("menuLateral");
+
+function mostrarPagina(id, atualizarURL = true) {
+  if (!paginas.some(p => p.id === id)) id = "inicio";
+
+  paginas.forEach(p => {
+    p.hidden = p.id !== id;
+  });
+
+  botoes.forEach(b => {
+    const ativo = b.dataset.pagina === id;
+    b.classList.toggle("ativo", ativo);
+    if (ativo) b.setAttribute("aria-current", "page");
+    else b.removeAttribute("aria-current");
+  });
+
+  if (atualizarURL) {
+    history.replaceState(null, "", "#" + id);
+  }
+
+  resultados.hidden = true;
+  lateral.classList.remove("aberta");
+  botaoMenu.setAttribute("aria-expanded", "false");
+  window.scrollTo(0, 0);
+}
+
+botoes.forEach(b => {
+  b.addEventListener("click", () => {
+    mostrarPagina(b.dataset.pagina);
+  });
+});
+
+botaoMenu.addEventListener("click", () => {
+  const aberta = lateral.classList.toggle("aberta");
+  botaoMenu.setAttribute("aria-expanded", String(aberta));
+});
+
+function normalizar(texto) {
+  return texto.normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("pt-BR");
+}
+
+const indice = [];
+
+paginas.forEach(pagina => {
+  const tituloPagina = pagina.querySelector(".titulo-pagina")
+    ?.textContent.trim() || pagina.id;
+
+  indice.push({
+    pagina: pagina.id,
+    titulo: tituloPagina,
+    texto: pagina.textContent.trim(),
+    elemento: null
+  });
+
+  pagina.querySelectorAll(".regra, .cartao, .painel, .aviso")
+    .forEach(elemento => {
+      const titulo = elemento.querySelector("h2,h3")
+        ?.textContent.trim() || tituloPagina;
+
+      indice.push({
+        pagina: pagina.id,
+        titulo,
+        texto: elemento.textContent.trim(),
+        elemento
       });
     });
+});
 
-    botaoMenu.addEventListener("click", () => {
-      const aberta = menuLateral.classList.toggle("aberta");
-      botaoMenu.setAttribute("aria-expanded", String(aberta));
-    });
+pesquisa.addEventListener("input", () => {
+  const termo = normalizar(pesquisa.value.trim());
+  resultados.replaceChildren();
 
-    function normalizar(texto) {
-      return texto
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLocaleLowerCase("pt-BR");
-    }
+  if (termo.length < 2) {
+    resultados.hidden = true;
+    return;
+  }
 
-    function montarIndice() {
-      const indice = [];
+  const encontrados = indice.filter(item =>
+    normalizar(item.texto).includes(termo)
+  ).slice(0, 15);
 
-      paginas.forEach(pagina => {
-        const tituloPagina =
-          pagina.querySelector(".titulo-pagina")?.textContent.trim()
-          || pagina.id;
+  if (!encontrados.length) {
+    const aviso = document.createElement("div");
+    aviso.className = "resultado";
+    aviso.textContent = "Nenhum resultado encontrado.";
+    resultados.appendChild(aviso);
+  }
 
-        const blocos = pagina.querySelectorAll(
-          ".cartao, .regra, .painel, .aviso"
-        );
+  encontrados.forEach(item => {
+    const botao = document.createElement("button");
+    botao.className = "resultado";
+    botao.type = "button";
 
-        indice.push({
-          pagina: pagina.id,
-          titulo: tituloPagina,
-          texto: pagina.textContent.trim(),
-          elemento: null
+    const titulo = document.createElement("strong");
+    titulo.textContent = item.titulo;
+
+    const descricao = document.createElement("small");
+    descricao.textContent =
+      item.texto.replace(/\s+/g, " ").slice(0, 130) + "...";
+
+    botao.append(titulo, descricao);
+
+    botao.addEventListener("click", () => {
+      mostrarPagina(item.pagina);
+      pesquisa.value = "";
+
+      if (item.elemento) {
+        item.elemento.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
         });
-
-        blocos.forEach(bloco => {
-          const titulo = bloco.querySelector("h2, h3")
-            ?.textContent.trim() || tituloPagina;
-
-          indice.push({
-            pagina: pagina.id,
-            titulo: titulo,
-            texto: bloco.textContent.trim(),
-            elemento: bloco
-          });
-        });
-      });
-
-      return indice;
-    }
-
-    const indiceBusca = montarIndice();
-
-    function limparResultados() {
-      resultados.replaceChildren();
-      resultados.hidden = true;
-    }
-
-    pesquisa.addEventListener("input", () => {
-      const termo = normalizar(pesquisa.value.trim());
-
-      limparResultados();
-
-      if (termo.length < 2) {
-        return;
-      }
-
-      const encontrados = indiceBusca
-        .filter(item => normalizar(item.texto).includes(termo))
-        .slice(0, 12);
-
-      if (encontrados.length === 0) {
-        const aviso = document.createElement("div");
-        aviso.className = "sem-resultados";
-        aviso.textContent = "Nenhum resultado encontrado.";
-        resultados.appendChild(aviso);
-      }
-
-      encontrados.forEach(item => {
-        const botao = document.createElement("button");
-        botao.type = "button";
-        botao.className = "resultado";
-
-        const titulo = document.createElement("strong");
-        titulo.textContent = item.titulo;
-
-        const descricao = document.createElement("small");
-        descricao.textContent =
-          item.texto.replace(/\s+/g, " ").slice(0, 130) + "...";
-
-        botao.append(titulo, descricao);
-
-        botao.addEventListener("click", () => {
-          mostrarPagina(item.pagina);
-          pesquisa.value = "";
-
-          if (item.elemento) {
-            item.elemento.scrollIntoView({
-              behavior: "smooth",
-              block: "center"
-            });
-          }
-        });
-
-        resultados.appendChild(botao);
-      });
-
-      resultados.hidden = false;
-    });
-
-    pesquisa.addEventListener("keydown", evento => {
-      if (evento.key === "Escape") {
-        limparResultados();
-        pesquisa.blur();
-      }
-
-      if (evento.key === "Enter") {
-        const primeiro = resultados.querySelector(".resultado");
-
-        if (primeiro && !resultados.hidden) {
-          primeiro.click();
-        }
       }
     });
 
-    document.addEventListener("click", evento => {
-      if (!evento.target.closest(".pesquisa")) {
-        resultados.hidden = true;
-      }
-    });
+    resultados.appendChild(botao);
+  });
 
-    window.addEventListener("hashchange", () => {
-      mostrarPagina(
-        location.hash.replace("#", ""),
-        false
-      );
-    });
+  resultados.hidden = false;
+});
 
-    mostrarPagina(
-      location.hash.replace("#", "") || "inicio",
-      false
-    );
-  </script>
+pesquisa.addEventListener("keydown", evento => {
+  if (evento.key === "Escape") {
+    resultados.hidden = true;
+  }
+
+  if (evento.key === "Enter") {
+    const primeiro = resultados.querySelector("button.resultado");
+    if (primeiro && !resultados.hidden) primeiro.click();
+  }
+});
+
+document.addEventListener("click", evento => {
+  if (!evento.target.closest(".pesquisa")) {
+    resultados.hidden = true;
+  }
+});
+
+window.addEventListener("hashchange", () => {
+  mostrarPagina(location.hash.slice(1), false);
+});
+
+mostrarPagina(location.hash.slice(1) || "inicio", false);
+</script>
 
 </body>
 </html>
