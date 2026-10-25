@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alabama RP | Site Oficial</title>
+  <style>
+    :root {
+      --fundo: #14100e;
+      --painel: #241b16;
+      --ouro: #d7af70;
+      --texto: #f3e6d2;
+      --vermelho: #8b3025;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: Georgia, serif;
+    }
+    header {
+      text-align: center;
+      padding: 65px 20px;
+      background: linear-gradient(#24170f, #14100e);
+      border-bottom: 2px solid var(--ouro);
+    }
+    h1, h2 { color: var(--ouro); }
+    h1 { font-size: 3rem; margin-bottom: 8px; }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 18px;
+      background: #211813;
+    }
+    nav a {
+      color: var(--ouro);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 35px 20px;
+    }
+    section {
+      background: var(--painel);
+      border: 1px solid #715334;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+    input {
+      width: 100%;
+      padding: 15px;
+      background: #110d0b;
+      border: 1px solid var(--ouro);
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+    }
+    .regra {
+      border-bottom: 1px solid #594330;
+      padding: 15px 0;
+    }
+    .regra h3 { color: var(--ouro); }
+    .botao {
+      display: inline-block;
+      background: var(--vermelho);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: var(--ouro);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ALABAMA RP</h1>
+  <p>Sua história, suas escolhas, suas consequências.</p>
+</header>
+
+<nav>
+  <a href="#inicio">Início</a>
+  <a href="#regras">Regulamento</a>
+  <a href="#territorios">Territórios</a>
+  <a href="#comunidade">Comunidade</a>
+</nav>
+
+<main>
+  <section id="inicio">
+    <h2>Bem-vindo ao Alabama RP</h2>
+    <p>
+      Um universo de Roleplay inspirado no Velho Oeste,
+      com governos, xerifados, tribos, piratas e histórias
+      construídas pelos próprios jogadores.
+    </p>
+  </section>
+
+  <section id="regras">
+    <h2>Regulamento Oficial</h2>
+    <p>Pesquise as regras do servidor:</p>
+    <input id="busca" type="search"
+           placeholder="Pesquisar: roubo, xerife, Guarma...">
+
+    <div id="lista">
+      <article class="regra">
+        <h3>1. Regras gerais de Roleplay</h3>
+        <p>Metagaming, Powergaming, RDM, VDM e Combat Logging são proibidos.</p>
+      </article>
+      <article class="regra">
+        <h3>2. Territórios</h3>
+        <p>Zona Legal, Zona Vermelha, Zona Azul, Blackwater e Guarma possuem regras próprias.</p>
+      </article>
+      <article class="regra">
+        <h3>3. Xerifados</h3>
+        <p>Cada xerifado possui até 10 integrantes e deve respeitar sua jurisdição.</p>
+      </article>
+      <article class="regra">
+        <h3>4. Grupos</h3>
+        <p>Bandos, tribos, facções e tripulações piratas possuem limite máximo de 10 jogadores.</p>
+      </article>
+      <article class="regra">
+        <h3>5. Autoridade do proprietário</h3>
+        <p>O proprietário do Alabama RP poderá revogar qualquer norma geral ou local.</p>
+      </article>
+    </div>
+    <p id="semResultado" hidden>Nenhuma regra encontrada.</p>
+  </section>
+
+  <section id="territorios">
+    <h2>Territórios</h2>
+    <p>Conheça as diferentes regiões e suas autoridades.</p>
+    <p>Zona Legal • Zona Vermelha • Zona Azul • Guarma • Blackwater</p>
+  </section>
+
+  <section id="comunidade">
+    <h2>Nossa comunidade</h2>
+    <p>Em breve, informações e acesso ao Discord oficial.</p>
+  </section>
+</main>
+
+<footer>
+  © Alabama RP — Projeto oficial
+</footer>
+
+<script>
+  const busca = document.getElementById("busca");
+  const regras = document.querySelectorAll(".regra");
+  const aviso = document.getElementById("semResultado");
+
+  busca.addEventListener("input", () => {
+    const termo = busca.value.toLocaleLowerCase("pt-BR");
+    let encontradas = 0;
+
+    regras.forEach(regra => {
+      const corresponde = regra.textContent
+        .toLocaleLowerCase("pt-BR")
+        .includes(termo);
+
+      regra.hidden = !corresponde;
+      if (corresponde) encontradas++;
+    });
+
+    aviso.hidden = encontradas > 0;
+  });
+</script>
+
+</body>
+</html>
