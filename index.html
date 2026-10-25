@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Alabama RP - Servidor de Roleplay no Velho Oeste.">
+  <meta name="description" content="Alabama RP — Servidor de Roleplay no Velho Oeste. Explore territórios, profissões, governos, economia e histórias criadas pelos jogadores.">
   <title>Alabama RP | Início</title>
   <link rel="stylesheet" href="estilo.css">
   <script src="script.js" defer></script>
 </head>
+
 <body>
 
 <header class="topo">
@@ -22,19 +23,28 @@
     </div>
 
     <div class="pesquisa">
-      <input id="pesquisaGlobal" type="search"
+      <input
+        id="pesquisaGlobal"
+        type="search"
         placeholder="Pesquisar regras, territórios, profissões, negócios..."
-        aria-label="Pesquisar no site" autocomplete="off">
+        aria-label="Pesquisar no site"
+        autocomplete="off"
+      >
       <div id="resultadosBusca" class="resultados" hidden></div>
     </div>
 
-    <button id="botaoMenu" class="botao-menu"
-      type="button" aria-expanded="false"
-      aria-controls="menuLateral">☰ Menu</button>
+    <button
+      id="botaoMenu"
+      class="botao-menu"
+      type="button"
+      aria-expanded="false"
+      aria-controls="menuLateral"
+    >☰ Menu</button>
   </div>
 </header>
 
 <div class="estrutura">
+
   <aside class="lateral" id="menuLateral">
     <h2>Navegação</h2>
 
@@ -57,61 +67,452 @@
 
   <main class="conteudo">
     <section class="pagina" id="inicio">
-      <h2 class="titulo-pagina">Bem-vindo ao Alabama RP</h2>
-      <p class="subtitulo">Sua história, suas escolhas, suas consequências.</p>
+
+      <h2 class="titulo-pagina">
+        Bem-vindo ao Alabama RP
+      </h2>
+
+      <p class="subtitulo">
+        Sua história, suas escolhas,
+        suas consequências.
+      </p>
+
+      <!-- APRESENTAÇÃO PRINCIPAL -->
 
       <div class="painel destaque">
-        <h2>O Velho Oeste espera por você</h2>
+        <h2>O Velho Oeste Espera por Você</h2>
+
         <p>
-          Um universo de Roleplay inspirado no Velho Oeste,
-          com governos, xerifados, tribos, piratas,
-          comércio e histórias construídas pelos jogadores.
+          Um mundo de Roleplay inspirado
+          no Velho Oeste, onde cada personagem
+          poderá construir sua própria história.
         </p>
+
         <p>
-          Conheça o regulamento, explore os territórios,
-          consulte o guia do jogador e descubra
-          como funciona a economia do Alabama RP.
+          Torne-se comerciante, fazendeiro,
+          minerador, caçador, pescador,
+          xerife, integrante de um bando,
+          membro de uma tribo ou pirata.
+        </p>
+
+        <p>
+          Explore territórios com governos
+          diferentes, participe da economia,
+          forme alianças e descubra
+          as consequências de suas escolhas.
         </p>
 
         <a class="botao" href="regulamento.html">
           Ler Regulamento
         </a>
-        <a class="botao" href="https://discord.gg/YhVTENFm2B"
-           target="_blank" rel="noopener noreferrer">
+
+        <a
+          class="botao"
+          href="https://discord.gg/YhVTENFm2B"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Entrar no Discord
         </a>
       </div>
 
-      <div class="grade">
-        <div class="cartao">
-          <h3>Regulamento Oficial</h3>
-          <p>Regras de Roleplay, autoridades, justiça e territórios.</p>
-          <a href="regulamento.html">Consultar regulamento</a>
-        </div>
+      <!-- ACESSO RÁPIDO -->
 
-        <div class="cartao">
-          <h3>Guia do Jogador</h3>
-          <p>Informações sobre atividades e profissões.</p>
-          <a href="guia.html">Consultar guia</a>
-        </div>
+      <div class="painel" id="explorar">
+        <h2>Explore o Alabama RP</h2>
 
-        <div class="cartao">
-          <h3>Economia</h3>
-          <p>Moedas, comércio e propriedades.</p>
-          <a href="economia.html">Consultar economia</a>
-        </div>
+        <div class="grade">
 
-        <div class="cartao">
-          <h3>Mensalidades e VIP</h3>
-          <p>Fazendas, saloons, armerias e outros negócios.</p>
-          <a href="mensalidades.html">Consultar mensalidades</a>
+          <div class="cartao">
+            <h3>📜 Regulamento Oficial</h3>
+            <p>
+              Regras de Roleplay,
+              autoridades, justiça,
+              roubos e territórios.
+            </p>
+            <a href="regulamento.html">
+              Consultar Regulamento
+            </a>
+          </div>
+
+          <div class="cartao">
+            <h3>🗺 Territórios</h3>
+            <p>
+              Conheça as regiões,
+              os governos e suas
+              regras de segurança.
+            </p>
+            <a href="territorios.html">
+              Conhecer Territórios
+            </a>
+          </div>
+
+          <div class="cartao">
+            <h3>📖 Guia do Jogador</h3>
+            <p>
+              Primeiros passos,
+              atividades, profissões
+              e orientações para jogar.
+            </p>
+            <a href="guia.html">
+              Consultar Guia
+            </a>
+          </div>
+
+          <div class="cartao">
+            <h3>💰 Economia</h3>
+            <p>
+              Moedas, comércio,
+              produção, propriedades
+              e negócios.
+            </p>
+            <a href="economia.html">
+              Consultar Economia
+            </a>
+          </div>
+
+          <div class="cartao">
+            <h3>★ Mensalidades e VIP</h3>
+            <p>
+              Informações sobre fazendas,
+              estabelecimentos comerciais
+              e benefícios VIP.
+            </p>
+            <a href="mensalidades.html">
+              Consultar Informações
+            </a>
+          </div>
+
+          <div class="cartao">
+            <h3>♧ Comunidade</h3>
+            <p>
+              Acompanhe anúncios,
+              novidades e informações
+              sobre a abertura.
+            </p>
+            <a href="comunidade.html">
+              Conhecer Comunidade
+            </a>
+          </div>
+
         </div>
       </div>
 
-      <div class="aviso">
-        Algumas atividades e serviços serão disponibilizados
-        conforme o desenvolvimento e a abertura do servidor.
+      <!-- TERRITÓRIOS -->
+
+      <div class="painel" id="territorios">
+        <h2>Cinco Regiões, Diferentes Caminhos</h2>
+
+        <p>
+          Cada região do Alabama RP
+          possuirá suas próprias características,
+          autoridades e oportunidades.
+        </p>
+
+        <div class="grade">
+
+          <div class="cartao">
+            <h3>⚖ Zona Legal</h3>
+            <p>
+              Cidades organizadas por
+              governos municipais,
+              eleições, xerifados
+              e legislação.
+            </p>
+            <a href="territorios.html#zona-legal">
+              Conhecer Zona Legal
+            </a>
+          </div>
+
+          <div class="cartao">
+            <h3>⚔ Zona Vermelha</h3>
+            <p>
+              Região de bandos,
+              disputas territoriais
+              e conflitos pelo poder.
+            </p>
+            <a href="territorios.html#zona-vermelha">
+              Conhecer Zona Vermelha
+            </a>
+          </div>
+
+          <div class="cartao">
+            <h3>◆ Zona Azul</h3>
+            <p>
+              Comunidades culturais,
+              tribos e tradições
+              com lideranças próprias.
+            </p>
+            <a href="territorios.html#zona-azul">
+              Conhecer Zona Azul
+            </a>
+          </div>
+
+          <div class="cartao">
+            <h3>☠ Guarma</h3>
+            <p>
+              Território de piratas,
+              capitães e tripulações,
+              com organização própria.
+            </p>
+            <a href="territorios.html#guarma">
+              Conhecer Guarma
+            </a>
+          </div>
+
+          <div class="cartao">
+            <h3>★ Blackwater</h3>
+            <p>
+              Cidade administrada
+              exclusivamente pela equipe,
+              com funções judiciais,
+              administrativas e econômicas.
+            </p>
+            <a href="territorios.html#blackwater">
+              Conhecer Blackwater
+            </a>
+          </div>
+
+        </div>
       </div>
+
+      <!-- ATIVIDADES -->
+
+      <div class="painel" id="atividades">
+        <h2>Construa Seu Próprio Caminho</h2>
+
+        <p>
+          Nem toda história precisa
+          começar com um negócio
+          ou uma organização.
+        </p>
+
+        <p>
+          O Alabama RP também contará
+          com atividades que não exigirão
+          contratação mensal em dinheiro real.
+        </p>
+
+        <div class="grade">
+
+          <div class="cartao">
+            <h3>⛏ Mineração</h3>
+            <p>
+              Explore áreas de mineração,
+              obtenha minérios
+              e comercialize sua produção.
+            </p>
+          </div>
+
+          <div class="cartao">
+            <h3>🏹 Caça</h3>
+            <p>
+              Cace animais selvagens
+              e negocie carne e peles
+              conforme os sistemas disponíveis.
+            </p>
+          </div>
+
+          <div class="cartao">
+            <h3>🎣 Pesca</h3>
+            <p>
+              Utilize equipamentos
+              de pesca e participe
+              da economia local.
+            </p>
+          </div>
+
+          <div class="cartao">
+            <h3>🌾 Fazendas</h3>
+            <p>
+              Desenvolva atividades
+              agrícolas e pecuárias,
+              com diferentes categorias
+              de propriedades.
+            </p>
+          </div>
+
+          <div class="cartao">
+            <h3>🏪 Comércio</h3>
+            <p>
+              Participe de atividades
+              comerciais, produção
+              e fornecimento de mercadorias.
+            </p>
+          </div>
+
+          <div class="cartao">
+            <h3>🤝 Organizações</h3>
+            <p>
+              Forme alianças,
+              participe de grupos
+              e desenvolva histórias
+              coletivas dentro das regras.
+            </p>
+          </div>
+
+        </div>
+
+        <p>
+          A disponibilidade de cada atividade
+          dependerá da implementação
+          e dos anúncios oficiais do servidor.
+        </p>
+
+        <a class="botao" href="guia.html">
+          Conhecer o Guia do Jogador
+        </a>
+      </div>
+
+      <!-- ECONOMIA -->
+
+      <div class="painel" id="economia">
+        <h2>Uma Economia Dividida por Territórios</h2>
+
+        <p>
+          A economia do Alabama RP
+          utilizará diferentes moedas
+          de acordo com cada região.
+        </p>
+
+        <div class="grade">
+
+          <div class="cartao">
+            <h3>Dinheiro Limpo</h3>
+            <p>
+              Utilizado nos estabelecimentos
+              oficiais da Zona Legal.
+            </p>
+          </div>
+
+          <div class="cartao">
+            <h3>Dinheiro Sujo</h3>
+            <p>
+              Utilizado nos estabelecimentos
+              oficiais da Zona Vermelha
+              e de Guarma.
+            </p>
+          </div>
+
+          <div class="cartao">
+            <h3>Moeda Cultural</h3>
+            <p>
+              Utilizada nos estabelecimentos
+              oficiais da Zona Azul.
+            </p>
+          </div>
+
+        </div>
+
+        <p>
+          Nas negociações diretas entre jogadores,
+          o vendedor poderá escolher
+          a moeda aceita.
+        </p>
+
+        <a class="botao" href="economia.html">
+          Entender a Economia
+        </a>
+      </div>
+
+      <!-- NEGÓCIOS E VIP -->
+
+      <div class="painel" id="negocios">
+        <h2>Negócios, Fazendas e Benefícios VIP</h2>
+
+        <p>
+          O Alabama RP planeja oferecer
+          estabelecimentos administrados
+          por jogadores, como saloons,
+          ferrarias, farmácias,
+          atividades artesanais
+          e propriedades rurais.
+        </p>
+
+        <p>
+          A contratação desses negócios
+          funcionará por mensalidade
+          em dinheiro real,
+          conforme os valores
+          e as condições oficiais.
+        </p>
+
+        <p>
+          Também estão previstos
+          benefícios VIP ativados
+          por códigos individuais,
+          com duração de 30 dias reais
+          a partir da ativação.
+        </p>
+
+        <div class="aviso">
+          Benefícios VIP não concederão
+          privilégios sobre as regras,
+          vagas extras em grupos
+          nem estabelecimentos gratuitos.
+        </div>
+
+        <a class="botao" href="mensalidades.html">
+          Conhecer Mensalidades e VIP
+        </a>
+      </div>
+
+      <!-- PREPARAÇÃO -->
+
+      <div class="painel" id="abertura">
+        <h2>Servidor em Preparação</h2>
+
+        <p>
+          O Alabama RP está em desenvolvimento.
+          Os sistemas, serviços e atividades
+          serão disponibilizados
+          conforme sua implementação.
+        </p>
+
+        <div class="aviso">
+          <strong>Abertura ainda não anunciada.</strong>
+          A data oficial, os requisitos
+          e as instruções de conexão
+          serão publicados quando confirmados.
+        </div>
+
+        <p>
+          Acompanhe os canais oficiais
+          para receber as informações
+          sobre o desenvolvimento
+          e a futura abertura do servidor.
+        </p>
+      </div>
+
+      <!-- COMUNIDADE -->
+
+      <div class="painel destaque" id="comunidade">
+        <h2>Sua História Começa Aqui</h2>
+
+        <p>
+          Escolha seu caminho,
+          construa amizades,
+          forme alianças
+          e prepare sua jornada
+          no Velho Oeste.
+        </p>
+
+        <p>
+          No Alabama RP,
+          cada decisão poderá
+          transformar sua história.
+        </p>
+
+        <a
+          class="botao"
+          href="https://discord.gg/YhVTENFm2B"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Fazer Parte da Comunidade
+        </a>
+      </div>
+
     </section>
   </main>
 </div>
