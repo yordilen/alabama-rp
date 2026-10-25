@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mensalidades, negócios, propriedades e VIP do Alabama RP.">
+  <title>Alabama RP | Mensalidades e VIP</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header class="topo">
+  <div class="topo-interno">
+    <div class="marca">
+      <img src="LOGO.png" alt="Logo oficial Alabama RP">
+      <div>
+        <h1>ALABAMA RP</h1>
+        <small>Sua história, suas escolhas.</small>
+      </div>
+    </div>
+
+    <div class="pesquisa">
+      <input
+        id="pesquisaGlobal"
+        type="search"
+        placeholder="Pesquisar regras, territórios, profissões, negócios..."
+        aria-label="Pesquisar no site"
+        autocomplete="off"
+      >
+      <div id="resultadosBusca" class="resultados" hidden></div>
+    </div>
+
+    <button
+      id="botaoMenu"
+      class="botao-menu"
+      type="button"
+      aria-expanded="false"
+      aria-controls="menuLateral"
+    >☰ Menu</button>
+  </div>
+</header>
+
+<div class="estrutura">
+
+  <aside class="lateral" id="menuLateral">
+    <h2>Navegação</h2>
+
+    <nav class="menu" aria-label="Menu principal">
+      <a href="index.html">⌂ &nbsp; Início</a>
+      <a href="regulamento.html">▤ &nbsp; Regulamento</a>
+      <a href="territorios.html">◇ &nbsp; Territórios</a>
+      <a href="guia.html">▣ &nbsp; Guia do Jogador</a>
+      <a href="economia.html">＄ &nbsp; Economia</a>
+      <a href="mensalidades.html">★ &nbsp; Mensalidades e VIP</a>
+      <a href="comunidade.html">♧ &nbsp; Comunidade</a>
+    </nav>
+
+    <div class="lateral-rodape">
+      Alabama RP<br>
+      Sua história, suas escolhas,<br>
+      suas consequências.
+    </div>
+  </aside>
+
+  <main class="conteudo">
+    <section class="pagina">
+
+      <h2 class="titulo-pagina">Mensalidades e VIP</h2>
+      <p class="subtitulo">
+        Propriedades, estabelecimentos comerciais e serviços do Alabama RP.
+      </p>
+
+      <div class="painel destaque">
+        <h2>Construa seu negócio no Velho Oeste</h2>
+        <p>
+          No Alabama RP, determinados estabelecimentos
+          poderão ser administrados por jogadores
+          mediante o pagamento de uma mensalidade.
+        </p>
+        <p>
+          O sistema foi planejado para permitir
+          a utilização de propriedades e negócios
+          durante o período contratado,
+          respeitando as regras do servidor.
+        </p>
+      </div>
+
+      <div class="aviso">
+        <strong>Contratações ainda não disponíveis.</strong>
+        Os valores serão anunciados oficialmente.
+        A integração de pagamentos será realizada
+        futuramente por meio da plataforma Tebex.
+      </div>
+
+      <div class="painel" id="catalogo">
+        <h2>Catálogo de Mensalidades</h2>
+
+        <div class="grade">
+
+          <div class="cartao" id="fazendas">
+            <h3>🌾 Fazendas</h3>
+            <p>
+              Propriedades rurais destinadas às
+              atividades permitidas pelos sistemas
+              do servidor.
+            </p>
+            <p>
+              A mensalidade mantém o direito
+              de utilização da propriedade
+              durante o período contratado.
+            </p>
+            <span class="etiqueta">Preço a definir</span>
+          </div>
+
+          <div class="cartao" id="saloons">
+            <h3>🍷 Saloons</h3>
+            <p>
+              Estabelecimentos destinados ao
+              comércio, à convivência e
+              às atividades de Roleplay.
+            </p>
+            <p>
+              A utilização depende da
+              disponibilidade do estabelecimento
+              e das regras aplicáveis.
+            </p>
+            <span class="etiqueta">Preço a definir</span>
+          </div>
+
+          <div class="cartao" id="armerias">
+            <h3>⚒ Armerias</h3>
+            <p>
+              Estabelecimentos relacionados
+              às atividades comerciais de
+              armamentos permitidos no servidor.
+            </p>
+            <p>
+              O funcionamento deverá respeitar
+              as regras econômicas e territoriais.
+            </p>
+            <span class="etiqueta">Preço a definir</span>
+          </div>
+
+          <div class="cartao" id="outros-negocios">
+            <h3>🏪 Outros Negócios</h3>
+            <p>
+              Novas categorias de estabelecimentos
+              poderão ser disponibilizadas
+              conforme o desenvolvimento
+              do Alabama RP.
+            </p>
+            <span class="etiqueta">Em preparação</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="painel" id="vip">
+        <h2>★ Alabama RP VIP</h2>
+
+        <p>
+          A área VIP está reservada para
+          futuros planos e benefícios,
+          que serão definidos e publicados
+          antes de sua disponibilização.
+        </p>
+
+        <div class="grade">
+          <div class="cartao">
+            <h3>Plano VIP</h3>
+            <p>
+              Benefícios, duração e preço
+              ainda não definidos.
+            </p>
+            <span class="etiqueta">Em preparação</span>
+          </div>
+        </div>
+
+        <div class="aviso">
+          Nenhum benefício VIP está sendo vendido
+          ou prometido nesta etapa.
+          As condições serão anunciadas oficialmente.
+        </div>
+      </div>
+
+      <div class="painel" id="funcionamento">
+        <h2>Como funcionam as mensalidades?</h2>
+
+        <div class="regra">
+          <h3>1. Contratação</h3>
+          <p>
+            O jogador contrata o direito
+            de utilização de um estabelecimento
+            pelo período mensal correspondente.
+          </p>
+          <p>
+            Não haverá cobrança inicial de aquisição
+            separada da mensalidade.
+          </p>
+        </div>
+
+        <div class="regra">
+          <h3>2. Mensalidade em dia</h3>
+          <p>
+            Enquanto o pagamento estiver regularizado,
+            o jogador mantém o direito de utilização
+            do estabelecimento conforme o contrato
+            e o regulamento.
+          </p>
+        </div>
+
+        <div class="regra">
+          <h3>3. Vencimento</h3>
+          <p>
+            Quando a mensalidade vencer,
+            começará um período de tolerância
+            de <strong>72 horas reais</strong>.
+          </p>
+          <p>
+            Durante esse período, o jogador
+            poderá continuar utilizando
+            o estabelecimento normalmente.
+          </p>
+        </div>
+
+        <div class="regra">
+          <h3>4. Regularização</h3>
+          <p>
+            Se o pagamento for confirmado
+            dentro das 72 horas,
+            o jogador continuará utilizando
+            o estabelecimento.
+          </p>
+        </div>
+
+        <div class="regra">
+          <h3>5. Falta de pagamento</h3>
+          <p>
+            Se a mensalidade não for regularizada
+            após as 72 horas de tolerância,
+            o sistema deverá retirar automaticamente
+            a titularidade e o direito de utilização.
+          </p>
+          <p>
+            O estabelecimento retornará
+            à administração do servidor.
+          </p>
+        </div>
+      </div>
+
+      <div class="painel" id="condicoes">
+        <h2>Condições Gerais</h2>
+
+        <ul>
+          <li>As mensalidades serão cobradas em dinheiro real por meio da plataforma de pagamento que será configurada.</li>
+          <li>Os preços serão divulgados oficialmente antes do início das contratações.</li>
+          <li>A disponibilidade dos estabelecimentos dependerá da organização do servidor.</li>
+          <li>O pagamento garante o direito de utilização durante o período contratado, não a propriedade permanente do estabelecimento.</li>
+          <li>Os aumentos de preços deverão ser anunciados previamente, respeitando as condições do ciclo anterior.</li>
+          <li>A devolução voluntária de um estabelecimento não gera reembolso automático, ressalvados os direitos legais aplicáveis.</li>
+          <li>O funcionamento automático dependerá da integração entre o sistema de pagamentos e o servidor.</li>
+        </ul>
+
+        <a href="regulamento.html#regra-20">
+          Consultar o regulamento de mensalidades
+        </a>
+      </div>
+
+      <div class="painel" id="itens-jogo">
+        <h2>Itens e objetos dentro do jogo</h2>
+
+        <p>
+          Móveis, objetos colocáveis e outros itens
+          disponíveis dentro do jogo serão adquiridos
+          com dinheiro do próprio servidor,
+          conforme os sistemas implementados.
+        </p>
+
+        <p>
+          A mensalidade de um estabelecimento
+          não significa a compra de todos os
+          objetos ou produtos utilizados nele.
+        </p>
+      </div>
+
+      <div class="painel" id="pagamentos">
+        <h2>Pagamentos e Tebex</h2>
+
+        <p>
+          A plataforma Tebex será utilizada
+          futuramente para organizar as
+          mensalidades e os pagamentos.
+        </p>
+
+        <p>
+          A integração planejada deverá permitir:
+        </p>
+
+        <ul>
+          <li>Identificação do jogador e do estabelecimento contratado.</li>
+          <li>Confirmação de pagamentos.</li>
+          <li>Controle de vencimentos.</li>
+          <li>Aplicação das 72 horas de tolerância.</li>
+          <li>Renovação do direito de utilização após pagamento confirmado.</li>
+          <li>Retirada do acesso após o término do prazo sem regularização.</li>
+        </ul>
+
+        <span class="etiqueta">Integração em preparação</span>
+      </div>
+
+      <div class="painel">
+        <h2>Acompanhe os anúncios oficiais</h2>
+
+        <p>
+          Os preços, a disponibilidade dos negócios,
+          os planos VIP e a abertura das contratações
+          serão anunciados pelos canais oficiais
+          do Alabama RP.
+        </p>
+
+        <a
+          class="botao"
+          href="https://discord.gg/YhVTENFm2B"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Entrar no Discord
+        </a>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<footer class="rodape">
+  © Alabama RP — Mensalidades e VIP
+</footer>
+
+</body>
+</html>
