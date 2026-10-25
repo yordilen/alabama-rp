@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Site oficial do servidor Alabama RP. Regulamento, guia do jogador, economia e mensalidades.">
   <title>Alabama RP | Site Oficial</title>
+
   <style>
     :root {
       --fundo: #14100e;
@@ -12,47 +14,81 @@
       --ouro: #d7af70;
       --texto: #f3e6d2;
       --vermelho: #8b3025;
+      --borda: #715334;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--fundo);
       color: var(--texto);
       font-family: Georgia, serif;
+      line-height: 1.6;
     }
+
     header {
       text-align: center;
-      padding: 65px 20px;
+      padding: 45px 20px;
       background: linear-gradient(#24170f, #14100e);
       border-bottom: 2px solid var(--ouro);
     }
-    h1, h2 { color: var(--ouro); }
-    h1 { font-size: 3rem; margin-bottom: 8px; }
+
+    .logo {
+      width: 250px;
+      max-width: 90%;
+      height: auto;
+    }
+
+    h1, h2, h3 {
+      color: var(--ouro);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+
     nav {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 18px;
       padding: 18px;
       background: #211813;
+      border-bottom: 1px solid var(--borda);
     }
+
     nav a {
       color: var(--ouro);
       text-decoration: none;
       font-weight: bold;
     }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     main {
       max-width: 950px;
       margin: auto;
       padding: 35px 20px;
     }
+
     section {
       background: var(--painel);
-      border: 1px solid #715334;
+      border: 1px solid var(--borda);
       border-radius: 10px;
       padding: 25px;
       margin-bottom: 25px;
     }
+
     input {
       width: 100%;
       padding: 15px;
@@ -62,11 +98,41 @@
       color: white;
       font-size: 16px;
     }
+
     .regra {
       border-bottom: 1px solid #594330;
       padding: 15px 0;
     }
-    .regra h3 { color: var(--ouro); }
+
+    .regra:last-child {
+      border-bottom: none;
+    }
+
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .cartao {
+      padding: 20px;
+      background: #19120f;
+      border: 1px solid #594330;
+      border-radius: 8px;
+    }
+
+    .cartao h3 {
+      margin-top: 0;
+    }
+
+    .aviso {
+      padding: 15px;
+      border-left: 3px solid var(--ouro);
+      background: #19120f;
+      margin-top: 20px;
+    }
+
     .botao {
       display: inline-block;
       background: var(--vermelho);
@@ -75,106 +141,415 @@
       border-radius: 5px;
       text-decoration: none;
     }
+
     footer {
       text-align: center;
       padding: 25px;
       color: var(--ouro);
     }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      header {
+        padding: 30px 15px;
+      }
+
+      section {
+        padding: 18px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<header>
- <img src="LOGO.png" alt="Logo Alabama RP" style="width:250px; max-width:90%; height:auto;">
-  <h1>ALABAMA RP</h1>
-  <p>Sua história, suas escolhas, suas consequências.</p>
-</header>
+  <header>
+    <img
+      src="LOGO.png"
+      alt="Logo oficial Alabama RP"
+      class="logo"
+    >
 
-<nav>
-  <a href="#inicio">Início</a>
-  <a href="#regras">Regulamento</a>
-  <a href="#territorios">Territórios</a>
-  <a href="#comunidade">Comunidade</a>
-</nav>
+    <h1>ALABAMA RP</h1>
+    <p>Sua história, suas escolhas, suas consequências.</p>
+  </header>
 
-<main>
-  <section id="inicio">
-    <h2>Bem-vindo ao Alabama RP</h2>
-    <p>
-      Um universo de Roleplay inspirado no Velho Oeste,
-      com governos, xerifados, tribos, piratas e histórias
-      construídas pelos próprios jogadores.
-    </p>
-  </section>
+  <nav aria-label="Menu principal">
+    <a href="#inicio">Início</a>
+    <a href="#regras">Regulamento</a>
+    <a href="#territorios">Territórios</a>
+    <a href="#guia">Guia do Jogador</a>
+    <a href="#economia">Economia</a>
+    <a href="#mensalidades">Mensalidades e VIP</a>
+    <a href="#comunidade">Comunidade</a>
+  </nav>
 
-  <section id="regras">
-    <h2>Regulamento Oficial</h2>
-    <p>Pesquise as regras do servidor:</p>
-    <input id="busca" type="search"
-           placeholder="Pesquisar: roubo, xerife, Guarma...">
+  <main>
 
-    <div id="lista">
-      <article class="regra">
-        <h3>1. Regras gerais de Roleplay</h3>
-        <p>Metagaming, Powergaming, RDM, VDM e Combat Logging são proibidos.</p>
-      </article>
-      <article class="regra">
-        <h3>2. Territórios</h3>
-        <p>Zona Legal, Zona Vermelha, Zona Azul, Blackwater e Guarma possuem regras próprias.</p>
-      </article>
-      <article class="regra">
-        <h3>3. Xerifados</h3>
-        <p>Cada xerifado possui até 10 integrantes e deve respeitar sua jurisdição.</p>
-      </article>
-      <article class="regra">
-        <h3>4. Grupos</h3>
-        <p>Bandos, tribos, facções e tripulações piratas possuem limite máximo de 10 jogadores.</p>
-      </article>
-      <article class="regra">
-        <h3>5. Autoridade do proprietário</h3>
-        <p>O proprietário do Alabama RP poderá revogar qualquer norma geral ou local.</p>
-      </article>
-    </div>
-    <p id="semResultado" hidden>Nenhuma regra encontrada.</p>
-  </section>
+    <section id="inicio">
+      <h2>Bem-vindo ao Alabama RP</h2>
 
-  <section id="territorios">
-    <h2>Territórios</h2>
-    <p>Conheça as diferentes regiões e suas autoridades.</p>
-    <p>Zona Legal • Zona Vermelha • Zona Azul • Guarma • Blackwater</p>
-  </section>
+      <p>
+        Um universo de Roleplay inspirado no Velho Oeste,
+        com governos, xerifados, tribos, piratas e histórias
+        construídas pelos próprios jogadores.
+      </p>
 
-  <section id="comunidade">
-    <h2>Nossa comunidade</h2>
-    <p>Em breve, informações e acesso ao Discord oficial.</p>
-  </section>
-</main>
+      <p>
+        Aqui você encontrará as regras oficiais,
+        informações sobre os territórios, guias de atividades
+        e detalhes sobre os serviços disponíveis no servidor.
+      </p>
+    </section>
 
-<footer>
-  © Alabama RP — Projeto oficial
-</footer>
+    <section id="regras">
+      <h2>Regulamento Oficial</h2>
 
-<script>
-  const busca = document.getElementById("busca");
-  const regras = document.querySelectorAll(".regra");
-  const aviso = document.getElementById("semResultado");
+      <p>Pesquise as regras do servidor:</p>
 
-  busca.addEventListener("input", () => {
-    const termo = busca.value.toLocaleLowerCase("pt-BR");
-    let encontradas = 0;
+      <input
+        id="busca"
+        type="search"
+        placeholder="Pesquisar: roubo, xerife, Guarma..."
+        aria-label="Pesquisar regras"
+      >
 
-    regras.forEach(regra => {
-      const corresponde = regra.textContent
-        .toLocaleLowerCase("pt-BR")
-        .includes(termo);
+      <div class="aviso">
+        O regulamento completo será publicado nesta seção.
+        Os tópicos abaixo são apenas um resumo provisório.
+      </div>
 
-      regra.hidden = !corresponde;
-      if (corresponde) encontradas++;
+      <div id="lista">
+
+        <article class="regra">
+          <h3>1. Regras gerais de Roleplay</h3>
+          <p>
+            Metagaming, Powergaming, RDM, VDM,
+            Combat Logging e uso de programas ilegais
+            são proibidos.
+          </p>
+        </article>
+
+        <article class="regra">
+          <h3>2. Territórios</h3>
+          <p>
+            Zona Legal, Zona Vermelha, Zona Azul,
+            Blackwater e Guarma possuem regras próprias.
+          </p>
+        </article>
+
+        <article class="regra">
+          <h3>3. Xerifados</h3>
+          <p>
+            Cada xerifado possui até 10 integrantes
+            e deve respeitar sua jurisdição.
+          </p>
+        </article>
+
+        <article class="regra">
+          <h3>4. Grupos</h3>
+          <p>
+            Bandos, tribos, facções e tripulações piratas
+            possuem limite máximo de 10 jogadores.
+          </p>
+        </article>
+
+        <article class="regra">
+          <h3>5. Autoridade administrativa</h3>
+          <p>
+            O proprietário do Alabama RP poderá revogar
+            normas gerais ou locais conforme o
+            regulamento oficial.
+          </p>
+        </article>
+
+      </div>
+
+      <p id="semResultado" hidden>
+        Nenhuma regra encontrada.
+      </p>
+    </section>
+
+    <section id="territorios">
+      <h2>Territórios</h2>
+
+      <p>
+        O Alabama RP possui diferentes regiões,
+        cada uma com suas próprias autoridades e regras.
+      </p>
+
+      <div class="grade">
+
+        <div class="cartao">
+          <h3>Zona Legal</h3>
+          <p>
+            Cidades administradas por autoridades locais,
+            com xerifados e sistema judicial.
+          </p>
+        </div>
+
+        <div class="cartao">
+          <h3>Zona Vermelha</h3>
+          <p>
+            Territórios de bandos, disputas de poder
+            e atividades fora da legislação da Zona Legal.
+          </p>
+        </div>
+
+        <div class="cartao">
+          <h3>Zona Azul</h3>
+          <p>
+            Comunidades e tribos com suas próprias
+            tradições e autoridades.
+          </p>
+        </div>
+
+        <div class="cartao">
+          <h3>Guarma</h3>
+          <p>
+            Território de piratas e tripulações
+            com organização própria.
+          </p>
+        </div>
+
+        <div class="cartao">
+          <h3>Blackwater</h3>
+          <p>
+            Região sob administração exclusiva
+            da equipe responsável pelo servidor.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="guia">
+      <h2>Guia do Jogador</h2>
+
+      <p>
+        Aprenda como funcionam as atividades,
+        profissões e sistemas do Alabama RP.
+      </p>
+
+      <div class="grade">
+
+        <div class="cartao">
+          <h3>Agricultura</h3>
+          <p>
+            Guia de cultivo, produção e atividades
+            agrícolas. Em preparação.
+          </p>
+        </div>
+
+        <div class="cartao">
+          <h3>Mineração</h3>
+          <p>
+            Guia de extração de minérios
+            e recursos. Em preparação.
+          </p>
+        </div>
+
+        <div class="cartao">
+          <h3>Profissões</h3>
+          <p>
+            Informações sobre os trabalhos
+            disponíveis. Em preparação.
+          </p>
+        </div>
+
+        <div class="cartao">
+          <h3>Negócios</h3>
+          <p>
+            Informações sobre fazendas,
+            saloons, armerias e outros
+            estabelecimentos. Em preparação.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="economia">
+      <h2>Economia</h2>
+
+      <p>
+        A economia do Alabama RP possui diferentes
+        moedas e regras de utilização conforme
+        o território.
+      </p>
+
+      <div class="grade">
+
+        <div class="cartao">
+          <h3>Dinheiro Limpo</h3>
+          <p>
+            Moeda utilizada nas atividades legais
+            e no comércio da Zona Legal.
+          </p>
+        </div>
+
+        <div class="cartao">
+          <h3>Dinheiro Sujo</h3>
+          <p>
+            Moeda relacionada às atividades
+            das regiões fora da Zona Legal.
+          </p>
+        </div>
+
+        <div class="cartao">
+          <h3>Moeda Cultural</h3>
+          <p>
+            Moeda destinada às atividades
+            econômicas da Zona Azul.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="aviso">
+        Objetos e itens colocáveis dentro do jogo
+        serão adquiridos com dinheiro do próprio jogo,
+        conforme os sistemas disponíveis no servidor.
+      </div>
+    </section>
+
+    <section id="mensalidades">
+      <h2>Mensalidades e VIP</h2>
+
+      <p>
+        Conheça os serviços disponíveis por mensalidade
+        no Alabama RP.
+      </p>
+
+      <div class="grade">
+
+        <div class="cartao">
+          <h3>VIP</h3>
+          <p>
+            Planos e benefícios a definir.
+          </p>
+          <p>Disponível em breve.</p>
+        </div>
+
+        <div class="cartao">
+          <h3>Fazendas</h3>
+          <p>
+            Utilização de propriedades rurais
+            mediante mensalidade.
+          </p>
+          <p>Valores em definição.</p>
+        </div>
+
+        <div class="cartao">
+          <h3>Saloons</h3>
+          <p>
+            Utilização de estabelecimentos
+            mediante mensalidade.
+          </p>
+          <p>Valores em definição.</p>
+        </div>
+
+        <div class="cartao">
+          <h3>Armerias</h3>
+          <p>
+            Utilização de estabelecimentos
+            mediante mensalidade.
+          </p>
+          <p>Valores em definição.</p>
+        </div>
+
+        <div class="cartao">
+          <h3>Outros Negócios</h3>
+          <p>
+            Novas categorias serão adicionadas
+            conforme o desenvolvimento do servidor.
+          </p>
+        </div>
+
+      </div>
+
+      <h3>Como funcionam as mensalidades?</h3>
+
+      <p>
+        O pagamento mantém o direito de utilização
+        do estabelecimento durante o período contratado.
+      </p>
+
+      <p>
+        Após o vencimento, o jogador terá 72 horas
+        de tolerância para regularizar o pagamento,
+        mantendo o acesso durante esse período.
+      </p>
+
+      <p>
+        Caso o pagamento não seja regularizado
+        dentro das 72 horas, o jogador perderá
+        automaticamente o direito de utilização
+        e a titularidade do estabelecimento.
+      </p>
+
+      <div class="aviso">
+        Os pagamentos ainda não estão disponíveis.
+        A integração com a plataforma oficial de
+        pagamentos será realizada futuramente.
+      </div>
+    </section>
+
+    <section id="comunidade">
+      <h2>Nossa Comunidade</h2>
+
+      <p>
+        Participe da comunidade Alabama RP,
+        acompanhe os anúncios e conheça
+        as novidades do servidor.
+      </p>
+
+      <p>
+        O link oficial do Discord será
+        disponibilizado em breve.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    © Alabama RP — Site Oficial
+  </footer>
+
+  <script>
+    const busca = document.getElementById("busca");
+    const regras = document.querySelectorAll(".regra");
+    const aviso = document.getElementById("semResultado");
+
+    busca.addEventListener("input", () => {
+      const termo = busca.value
+        .trim()
+        .toLocaleLowerCase("pt-BR");
+
+      let encontradas = 0;
+
+      regras.forEach((regra) => {
+        const corresponde = regra.textContent
+          .toLocaleLowerCase("pt-BR")
+          .includes(termo);
+
+        regra.hidden = !corresponde;
+
+        if (corresponde) {
+          encontradas++;
+        }
+      });
+
+      aviso.hidden = encontradas > 0;
     });
-
-    aviso.hidden = encontradas > 0;
-  });
-</script>
+  </script>
 
 </body>
 </html>
