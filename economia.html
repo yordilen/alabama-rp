@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Economia do Alabama RP: dinheiro limpo, dinheiro sujo, moeda cultural, comércio e propriedades.">
+  <title>Alabama RP | Economia</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header class="topo">
+  <div class="topo-interno">
+    <div class="marca">
+      <img src="LOGO.png" alt="Logo oficial Alabama RP">
+      <div>
+        <h1>ALABAMA RP</h1>
+        <small>Sua história, suas escolhas.</small>
+      </div>
+    </div>
+
+    <div class="pesquisa">
+      <input
+        id="pesquisaGlobal"
+        type="search"
+        placeholder="Pesquisar regras, territórios, profissões, negócios..."
+        aria-label="Pesquisar no site"
+        autocomplete="off"
+      >
+      <div id="resultadosBusca" class="resultados" hidden></div>
+    </div>
+
+    <button
+      id="botaoMenu"
+      class="botao-menu"
+      type="button"
+      aria-expanded="false"
+      aria-controls="menuLateral"
+    >☰ Menu</button>
+  </div>
+</header>
+
+<div class="estrutura">
+
+  <aside class="lateral" id="menuLateral">
+    <h2>Navegação</h2>
+
+    <nav class="menu" aria-label="Menu principal">
+      <a href="index.html">⌂ &nbsp; Início</a>
+      <a href="regulamento.html">▤ &nbsp; Regulamento</a>
+      <a href="territorios.html">◇ &nbsp; Territórios</a>
+      <a href="guia.html">▣ &nbsp; Guia do Jogador</a>
+      <a href="economia.html">＄ &nbsp; Economia</a>
+      <a href="mensalidades.html">★ &nbsp; Mensalidades e VIP</a>
+      <a href="comunidade.html">♧ &nbsp; Comunidade</a>
+    </nav>
+
+    <div class="lateral-rodape">
+      Alabama RP<br>
+      Sua história, suas escolhas,<br>
+      suas consequências.
+    </div>
+  </aside>
+
+  <main class="conteudo">
+    <section class="pagina">
+
+      <h2 class="titulo-pagina">Economia do Alabama RP</h2>
+      <p class="subtitulo">
+        Moedas, comércio, atividades econômicas e propriedades.
+      </p>
+
+      <div class="painel destaque">
+        <h2>Uma economia dividida por territórios</h2>
+        <p>
+          No Alabama RP, a economia está relacionada
+          à organização territorial e às atividades
+          desenvolvidas pelos personagens.
+        </p>
+        <p>
+          Existem três categorias de moeda:
+          dinheiro limpo, dinheiro sujo e moeda cultural.
+          Cada uma possui características e regras próprias.
+        </p>
+      </div>
+
+      <div class="painel">
+        <h2>As três moedas do Alabama RP</h2>
+
+        <div class="grade">
+
+          <div class="cartao" id="dinheiro-limpo">
+            <h3>💰 Dinheiro Limpo</h3>
+            <span class="etiqueta">Zona Legal</span>
+            <p>
+              Utilizado nas atividades legais,
+              nos serviços e nos estabelecimentos
+              comerciais da Zona Legal.
+            </p>
+            <p>
+              Representa a economia reconhecida
+              pelas autoridades legais.
+            </p>
+          </div>
+
+          <div class="cartao" id="dinheiro-sujo">
+            <h3>💵 Dinheiro Sujo</h3>
+            <span class="etiqueta">Zona Vermelha e Guarma</span>
+            <p>
+              Associado às atividades econômicas
+              da Zona Vermelha e de Guarma.
+            </p>
+            <p>
+              Seu porte dentro da Zona Legal
+              é considerado ilegal.
+            </p>
+          </div>
+
+          <div class="cartao" id="moeda-cultural">
+            <h3>◆ Moeda Cultural</h3>
+            <span class="etiqueta">Zona Azul</span>
+            <p>
+              Utilizada nas atividades e
+              estabelecimentos das comunidades
+              culturais da Zona Azul.
+            </p>
+            <p>
+              Possui sua própria função
+              na economia regional.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="painel" id="comercios">
+        <h2>Comércios e estabelecimentos</h2>
+
+        <h3>Comércios oficiais</h3>
+        <p>
+          Os estabelecimentos identificados no mapa
+          utilizarão a moeda correspondente
+          à região onde estiverem localizados.
+        </p>
+
+        <ul>
+          <li>Zona Legal: dinheiro limpo.</li>
+          <li>Zona Vermelha: dinheiro sujo.</li>
+          <li>Guarma: dinheiro sujo.</li>
+          <li>Zona Azul: moeda cultural.</li>
+        </ul>
+
+        <h3>Negociações entre jogadores</h3>
+        <p>
+          Nas transações diretas entre jogadores,
+          o vendedor poderá escolher a moeda
+          que deseja receber.
+        </p>
+
+        <p>
+          O comprador e o vendedor deverão
+          respeitar as regras territoriais
+          e as consequências de suas negociações.
+        </p>
+      </div>
+
+      <div class="painel" id="dinheiro-ilegal">
+        <h2>Dinheiro sujo na Zona Legal</h2>
+
+        <p>
+          Portar dinheiro sujo na Zona Legal
+          constitui uma infração às normas econômicas.
+        </p>
+
+        <ul>
+          <li>As autoridades poderão apreender o dinheiro sujo carregado pelo personagem, conforme o procedimento aplicável.</li>
+          <li>O dinheiro limpo não será confiscado simplesmente por estar junto ao dinheiro sujo.</li>
+          <li>Valores armazenados não são automaticamente confiscados por uma derrota em ação de RP.</li>
+          <li>O personagem poderá responder pelas consequências legais previstas no regulamento.</li>
+        </ul>
+
+        <a href="regulamento.html#regra-13">
+          Consultar as regras econômicas
+        </a>
+      </div>
+
+      <div class="painel" id="propriedades">
+        <h2>Propriedades e residência</h2>
+
+        <p>
+          A propriedade de estabelecimentos
+          e o registro de residência seguem
+          as regras de cada região.
+        </p>
+
+        <ul>
+          <li>Cada personagem poderá possuir apenas uma residência oficial registrada.</li>
+          <li>A mudança de residência entre regiões deverá respeitar o intervalo de 30 dias reais.</li>
+          <li>Antes de mudar, o personagem deverá abrir mão das propriedades da região anterior.</li>
+          <li>Depois da mudança regular, poderá adquirir propriedades na nova região.</li>
+          <li>Trabalhadores que não sejam proprietários não estão sujeitos às mesmas restrições de titularidade.</li>
+          <li>Uma identidade falsa não concede direitos legais de propriedade.</li>
+        </ul>
+
+        <a href="regulamento.html#regra-19">
+          Consultar regras de residência
+        </a>
+      </div>
+
+      <div class="painel" id="atividades">
+        <h2>Atividades econômicas</h2>
+
+        <p>
+          As atividades abaixo fazem parte
+          do planejamento econômico do Alabama RP.
+          Sua disponibilidade dependerá
+          da instalação e dos testes dos sistemas.
+        </p>
+
+        <div class="grade">
+
+          <div class="cartao">
+            <h3>🌾 Agricultura</h3>
+            <p>Produção e atividades rurais.</p>
+            <span class="etiqueta">Em preparação</span>
+          </div>
+
+          <div class="cartao">
+            <h3>⛏ Mineração</h3>
+            <p>Extração e comércio de recursos.</p>
+            <span class="etiqueta">Em preparação</span>
+          </div>
+
+          <div class="cartao">
+            <h3>🏪 Comércio</h3>
+            <p>Estabelecimentos e negociações.</p>
+            <span class="etiqueta">Em preparação</span>
+          </div>
+
+          <div class="cartao">
+            <h3>🐎 Atividades Rurais</h3>
+            <p>Trabalhos e oportunidades no campo.</p>
+            <span class="etiqueta">Em preparação</span>
+          </div>
+
+        </div>
+
+        <a class="botao" href="guia.html">
+          Consultar Guia do Jogador
+        </a>
+      </div>
+
+      <div class="painel" id="itens">
+        <h2>Objetos e itens dentro do jogo</h2>
+
+        <p>
+          Os objetos, móveis e itens colocáveis
+          dentro do jogo serão adquiridos
+          com dinheiro do próprio servidor,
+          conforme os sistemas implementados.
+        </p>
+
+        <p>
+          Esses itens não fazem parte
+          das mensalidades pagas com dinheiro real.
+        </p>
+      </div>
+
+      <div class="painel" id="mensalidades">
+        <h2>Negócios e mensalidades</h2>
+
+        <p>
+          Determinados estabelecimentos,
+          como fazendas, saloons e armerias,
+          poderão ser disponibilizados
+          por mensalidade.
+        </p>
+
+        <p>
+          A mensalidade corresponde ao direito
+          de utilização do estabelecimento,
+          seguindo as condições oficiais.
+        </p>
+
+        <p>
+          Após o vencimento, haverá tolerância
+          de 72 horas reais para regularização.
+        </p>
+
+        <a class="botao" href="mensalidades.html">
+          Consultar Mensalidades e VIP
+        </a>
+      </div>
+
+      <div class="aviso">
+        Os valores econômicos, preços de produtos,
+        remunerações e mecanismos de conversão
+        entre moedas ainda dependem da configuração
+        e do balanceamento do servidor.
+        Nenhuma taxa de câmbio está definida nesta página.
+      </div>
+
+      <div class="painel">
+        <h2>Acompanhe as novidades</h2>
+        <p>
+          As atualizações econômicas e a disponibilidade
+          dos sistemas serão anunciadas oficialmente.
+        </p>
+
+        <a
+          class="botao"
+          href="https://discord.gg/YhVTENFm2B"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Entrar no Discord
+        </a>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<footer class="rodape">
+  © Alabama RP — Economia
+</footer>
+
+</body>
+</html>
